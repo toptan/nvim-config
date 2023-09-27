@@ -35,3 +35,7 @@ keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 -- Buffer navigation
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+
+-- Telescope
+keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<c-t>", "<cmd>Telescope live_grep<CR>", opts)
