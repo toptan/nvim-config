@@ -5,5 +5,6 @@ require "user.autocmds"
 
 spec "user.whichkey"
 spec "user.nvimtree"
+spec "user.lspconfig"
 
 require "user.lazy"
