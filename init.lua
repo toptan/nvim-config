@@ -4,6 +4,6 @@ require "user.keymaps"
 require "user.autocmds"
 
 spec "user.whichkey"
--- spec "user.nvimtree"
+spec "user.nvimtree"
 
 require "user.lazy"

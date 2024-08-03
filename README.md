@@ -1,1 +1,1 @@
-# My daily driver NeoVim configuration
+# My daily driver Neovim configuration

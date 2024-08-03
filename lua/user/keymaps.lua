@@ -43,7 +43,9 @@ vim.keymap.set("n", "<Tab>", "<cmd>:popup mousemenu<CR>")
 -- tailwind bearable to work with
 keymap({ "n", "x" }, "j", "gj", opts)
 keymap({ "n", "x" }, "k", "gk", opts)
-keymap("n", "<leader>w", ":lua vim.wo.wrap = not vim.wo.wrap<CR>", opts)
+
+-- TODO: Do I need this?
+-- keymap("n", "<leader>w", ":lua vim.wo.wrap = not vim.wo.wrap<CR>", opts)
 
 -- TODO: Do I need this?
 -- vim.api.nvim_set_keymap('t', '<C-;>', '<C-\\><C-n>', opts)
