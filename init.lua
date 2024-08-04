@@ -16,5 +16,7 @@ spec("user.colorscheme")
 spec("user.schemastore")
 spec("user.projects")
 spec("user.telescope")
+spec("user.neogit")
+spec("user.gitsigns")
 
 require("user.lazy")
