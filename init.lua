@@ -12,5 +12,6 @@ spec("user.lspconfig")
 spec("user.toggleterm")
 spec("user.none-ls")
 spec("user.treesitter")
+spec("user.colorscheme")
 
 require("user.lazy")

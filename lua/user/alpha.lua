@@ -51,7 +51,7 @@ function M.config()
 		dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 	}
 
-	dashboard.section.header.opts.hl = "Keyword"
+	dashboard.section.header.opts.hl = "Green"
 	dashboard.section.buttons.opts.hl = "Include"
 	dashboard.section.footer.opts.hl = "Type"
 
