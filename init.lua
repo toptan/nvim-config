@@ -21,5 +21,6 @@ spec("user.telescope")
 spec("user.toggleterm")
 spec("user.treesitter")
 spec("user.whichkey")
+spec("user.indentline")
 
 require("user.lazy")
