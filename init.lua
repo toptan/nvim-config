@@ -9,5 +9,6 @@ spec "user.devicons"
 spec "user.nvimtree"
 spec "user.mason"
 spec "user.lspconfig"
+spec "user.toggleterm"
 
 require "user.lazy"
