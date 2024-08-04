@@ -13,5 +13,6 @@ spec("user.toggleterm")
 spec("user.none-ls")
 spec("user.treesitter")
 spec("user.colorscheme")
+spec("user.schemastore")
 
 require("user.lazy")
