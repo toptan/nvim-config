@@ -1,24 +1,24 @@
 local M = {
-  "folke/which-key.nvim",
-  event = "VeryLazy",
+	"folke/which-key.nvim",
+	event = "VeryLazy",
 }
 
 function M.config()
-  local wk = require "which-key"
- 
-  local mappings = {
-    { "<leader>q", "<cmd>confirm q<cr>", desc = "Quit" },
-    { "<leader>h", "<cmd>nohlsearch<cr>", desc = "NOHL" },
-    { "<leader>;", "<cmd>tabnew | terminal<cr>", desc = "Terminal" },
-    { "<leader>v", "<cmd>vsplit<cr>", desc = "Split" },
-  }
+	local wk = require("which-key")
 
-  local opts = {
-    mode = "n",
-    prefix = "<leader>",
-  }
+	local mappings = {
+		{ "<leader>q", "<cmd>confirm q<cr>", desc = "Quit" },
+		{ "<leader>h", "<cmd>nohlsearch<cr>", desc = "NOHL" },
+		{ "<leader>;", "<cmd>tabnew | terminal<cr>", desc = "Terminal" },
+		{ "<leader>v", "<cmd>vsplit<cr>", desc = "Split" },
+	}
 
-  wk.add(mappings, opts)
+	local opts = {
+		mode = "n",
+		prefix = "<leader>",
+	}
+
+	wk.add(mappings, opts)
 end
 
 return M
