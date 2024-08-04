@@ -18,5 +18,7 @@ spec("user.projects")
 spec("user.telescope")
 spec("user.neogit")
 spec("user.gitsigns")
+spec("user.cmp")
+spec("user.comment")
 
 require("user.lazy")
