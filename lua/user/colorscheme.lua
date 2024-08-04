@@ -1,18 +1,12 @@
 local M = {
-	"neanias/everforest-nvim",
-	version = false,
+	"catppuccin/nvim",
 	lazy = false,
 	priority = 1000,
+	name = "catpuccin",
 }
 
 function M.config()
-	local opts = {
-		background = "hard",
-		ui_contrast = "high",
-	}
-	require("everforest").setup(opts)
-
-	vim.cmd.colorscheme("everforest")
+	vim.cmd.colorscheme("catppuccin-mocha")
 end
 
 return M

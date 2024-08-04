@@ -47,6 +47,8 @@ function M.config()
 			desc = "Format",
 		},
 		{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
+		{ "<leader>lb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer diagnostics" },
+		{ "<leader>ld", "<cmd>Trouble diagnostics toggle<cr>", desc = "Workspace diagnostics" },
 		{ "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next diagnostic" },
 		{ "<leader>lh", "<cmd>lua require('user.lspconfig').toggle_inlay_hints()<cr>", desc = "Hints" },
 		{ "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "Prev diagnostic" },
@@ -121,6 +123,18 @@ function M.config()
 		end
 
 		lspconfig[server].setup(opts)
+
+		local function setup_lsp_diags()
+			vim.lsp.handlers["textDocument/publishDiagnostics"] =
+				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+					virtual_text = false,
+					signs = true,
+					update_in_insert = false,
+					underline = true,
+				})
+		end
+
+		setup_lsp_diags()
 	end
 end
 
