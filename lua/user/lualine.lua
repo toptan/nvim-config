@@ -7,7 +7,7 @@ local M = {
 
 function M.config()
 	local spaces = function()
-		return "spaces: " .. vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
+		return require("user.icons").ui.Tab .. vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
 	end
 
 	local hide_in_width = function()
@@ -33,7 +33,7 @@ function M.config()
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diagnostics" },
-			lualine_c = {},
+			lualine_c = { "filename" },
 			lualine_x = { diff, spaces, "filetype" },
 			lualine_y = { "location" },
 			lualine_z = { "progress" },
