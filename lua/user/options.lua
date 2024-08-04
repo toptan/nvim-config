@@ -54,4 +54,8 @@ vim.g.netrw_mouse = 2
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.g.python3_host_prog = "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
+if vim.loop.os_uname() == "Darwin" then
+	vim.g.python3_host_prog = "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
+elseif vim.loop.os_uname() == "Linux" then
+	vim.g.python3_host_prog = "/usr/bin/python3"
+end
