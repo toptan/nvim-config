@@ -9,9 +9,10 @@ function M.config()
 	local mappings = {
 		{ "<leader>q", "<cmd>confirm q<cr>", desc = "Quit" },
 		{ "<leader>h", "<cmd>nohlsearch<cr>", desc = "NOHL" },
-		{ "<leader>;", "<cmd>tabnew | terminal<cr>", desc = "Terminal" },
 		{ "<leader>v", "<cmd>vsplit<cr>", desc = "Split" },
-	}
+    { "<leader>b", group = "Buffers" },
+    { "<leader>f", group = "Find" },
+  }
 
 	local opts = {
 		mode = "n",

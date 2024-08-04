@@ -14,5 +14,7 @@ spec("user.none-ls")
 spec("user.treesitter")
 spec("user.colorscheme")
 spec("user.schemastore")
+spec("user.projects")
+spec("user.telescope")
 
 require("user.lazy")

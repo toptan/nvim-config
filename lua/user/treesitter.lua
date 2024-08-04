@@ -5,7 +5,7 @@ local M = {
 }
 
 function M.config()
-	require("nvim-treesitter.configs").setup({
+	local opts = {
 		ensure_installed = {
 			"lua",
 			"markdown",
@@ -16,7 +16,8 @@ function M.config()
 		},
 		highlight = { enable = true },
 		indent = { enable = true },
-	})
+	}
+	require("nvim-treesitter.configs").setup(opts)
 end
 
 return M
