@@ -11,5 +11,6 @@ spec("user.mason")
 spec("user.lspconfig")
 spec("user.toggleterm")
 spec("user.none-ls")
+spec("user.treesitter")
 
 require("user.lazy")
