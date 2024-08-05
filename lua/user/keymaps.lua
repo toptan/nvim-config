@@ -36,6 +36,23 @@ vim.cmd([[:amenu 10.110 mousemenu.References <cmd>lua vim.lsp.buf.references()<C
 vim.keymap.set("n", "<RightMouse>", "<cmd>:popup mousemenu<CR>")
 vim.keymap.set("n", "<Tab>", "<cmd>:popup mousemenu<CR>")
 
+keymap(
+	"n",
+	"<leader>lt",
+	(function()
+		local diag_status = 1 -- 1 is show; 0 is hide
+		return function()
+			if diag_status == 1 then
+				diag_status = 0
+				vim.diagnostic.hide()
+			else
+				diag_status = 1
+				vim.diagnostic.show()
+			end
+		end
+	end)()
+)
+
 -- TODO: Do I need this?
 -- keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
 -- keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)

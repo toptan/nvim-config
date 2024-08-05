@@ -22,6 +22,7 @@ spec("user.toggleterm")
 spec("user.treesitter")
 spec("user.whichkey")
 spec("user.indentline")
-spec("user.trouble")
+-- spec("user.trouble")
+spec("user.lspsaga")
 
 require("user.lazy")
