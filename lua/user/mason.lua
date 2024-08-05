@@ -11,6 +11,10 @@ function M.config()
 		"bashls",
 		"jsonls",
 		"yamlls",
+		"clangd",
+		"cmake",
+		"bashls",
+		"pylsp",
 	}
 
 	require("mason").setup({
