@@ -70,6 +70,7 @@ function M.config()
 		"lua_ls",
 		"jsonls",
 		"yamlls",
+    "pylsp",
 	}
 
 	local default_diagnostic_config = {
