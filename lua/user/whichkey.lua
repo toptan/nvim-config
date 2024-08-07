@@ -10,9 +10,10 @@ function M.config()
 		{ "<leader>q", "<cmd>confirm q<cr>", desc = "Quit" },
 		{ "<leader>h", "<cmd>nohlsearch<cr>", desc = "NOHL" },
 		{ "<leader>v", "<cmd>vsplit<cr>", desc = "Split" },
-    { "<leader>b", group = "Buffers" },
-    { "<leader>f", group = "Find" },
-  }
+		{ "<leader>b", group = "Buffers" },
+		{ "<leader>bc", "<cmd>bd<cr>", desc = "Close current buffer" },
+		{ "<leader>f", group = "Find" },
+	}
 
 	local opts = {
 		mode = "n",
