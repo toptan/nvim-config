@@ -1,12 +1,20 @@
+-- local M = {
+-- 	"catppuccin/nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	name = "catpuccin",
+-- }
+--
 local M = {
-	"catppuccin/nvim",
-	lazy = false,
-	priority = 1000,
-	name = "catpuccin",
+  "eldritch-theme/eldritch.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {}
 }
 
 function M.config()
-	vim.cmd.colorscheme("catppuccin-mocha")
+	-- vim.cmd.colorscheme("catppuccin-mocha")
+  vim.cmd.colorscheme("eldritch")
 end
 
 return M
