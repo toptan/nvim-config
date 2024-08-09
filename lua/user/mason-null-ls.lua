@@ -10,14 +10,15 @@ local M = {
 function M.config()
 	local cfg = {
 		ensure_installed = {
-			"stylua",
 			"black",
-			"prettier",
 			"clang-format",
 			"cmakelang",
 			"jq",
+			"prettier",
+			"stylua",
 			"xmlformatter",
 			"yamllint",
+      "sqlfmt",
 		},
 	}
 

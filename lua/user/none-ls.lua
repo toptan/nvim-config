@@ -17,6 +17,8 @@ function M.config()
 			formatting.stylua,
 			formatting.prettier,
 			formatting.black,
+      formatting.sql_formatter,
+			-- formatting.sql_formatter.with({ command = { "sqlfmt" } }),
 			-- formatting.prettier.with {
 			--   extra_filetypes = { "toml" },
 			--   -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },

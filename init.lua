@@ -5,7 +5,8 @@ require("user.autocmds")
 
 spec("user.alpha")
 spec("user.cmp")
-spec("user.colorscheme")
+spec("user.colorschemes.catppuccin")
+spec("user.colorschemes.eldritch")
 spec("user.comment")
 spec("user.devicons")
 spec("user.gitsigns")
@@ -28,3 +29,5 @@ spec("user.trouble")
 spec("user.whichkey")
 
 require("user.lazy")
+require("user.colorscheme")
+
