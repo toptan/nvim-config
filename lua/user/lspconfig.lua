@@ -45,7 +45,7 @@ function M.config()
 	local wk = require("which-key")
 	local mappings = {
 		{ "<leader>l", group = "LSP" },
-		-- { "<leader>la", "<cmd>Lspsaga code_action<cr>", desc = "Code action" },
+		{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code action" },
 		{
 			"<leader>lf",
 			"<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
@@ -76,6 +76,8 @@ function M.config()
 		"jsonls",
 		"yamlls",
 		"pylsp",
+    "clangd",
+    "cmake",
 	}
 
 	local default_diagnostic_config = {
