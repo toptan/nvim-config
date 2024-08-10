@@ -10,10 +10,10 @@ local M = {
 			"hrsh7th/cmp-emoji",
 			event = "InsertEnter",
 		},
-		{
-			"hrsh7th/cmp-buffer",
-			event = "InsertEnter",
-		},
+		-- {
+		-- 	"hrsh7th/cmp-buffer",
+		-- 	event = "InsertEnter",
+		-- },
 		{
 			"hrsh7th/cmp-path",
 			event = "InsertEnter",

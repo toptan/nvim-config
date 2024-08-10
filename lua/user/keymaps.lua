@@ -8,11 +8,11 @@ vim.g.maplocalleader = " "
 keymap("n", "<C-i>", "<C-i>", opts)
 
 -- Better window navigation
-keymap("n", "<m-h>", "<C-w>h", opts)
-keymap("n", "<m-j>", "<C-w>j", opts)
-keymap("n", "<m-k>", "<C-w>k", opts)
-keymap("n", "<m-l>", "<C-w>l", opts)
-keymap("n", "<m-tab>", "<c-6>", opts)
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<M-tab>", "<C-6>", opts)
 
 -- TODO: Do I need this?
 -- keymap("n", "n", "nzz", opts)
@@ -29,12 +29,12 @@ keymap("v", ">", ">gv", opts)
 -- TODO: Do I need this?
 -- keymap("x", "p", [["_dP]])
 
-vim.cmd([[:amenu 10.100 mousemenu.Goto\ Definition <cmd>lua vim.lsp.buf.definition()<CR>]])
-vim.cmd([[:amenu 10.110 mousemenu.References <cmd>lua vim.lsp.buf.references()<CR>]])
+-- TODO: Do I need this?
+-- vim.cmd([[:amenu 10.100 mousemenu.Goto\ Definition <cmd>lua vim.lsp.buf.definition()<CR>]])
+-- vim.cmd([[:amenu 10.110 mousemenu.References <cmd>lua vim.lsp.buf.references()<CR>]])
 -- vim.cmd [[:amenu 10.120 mousemenu.-sep- *]]
-
-vim.keymap.set("n", "<RightMouse>", "<cmd>:popup mousemenu<CR>")
-vim.keymap.set("n", "<Tab>", "<cmd>:popup mousemenu<CR>")
+-- vim.keymap.set("n", "<RightMouse>", "<cmd>:popup mousemenu<CR>")
+-- vim.keymap.set("n", "<Tab>", "<cmd>:popup mousemenu<CR>")
 
 keymap(
 	"n",
@@ -50,7 +50,10 @@ keymap(
 				vim.diagnostic.show()
 			end
 		end
-	end)()
+	end)(),
+	{
+		desc = "Toggle inlay hints",
+	}
 )
 
 -- TODO: Do I need this?
@@ -66,3 +69,5 @@ keymap({ "n", "x" }, "k", "gk", opts)
 
 -- TODO: Do I need this?
 -- vim.api.nvim_set_keymap('t', '<C-;>', '<C-\\><C-n>', opts)
+
+keymap("n", "<C-h>", ":NvimTreeFocus<cr>", { silent = true, noremap = true, desc = "Focus file explorer" })

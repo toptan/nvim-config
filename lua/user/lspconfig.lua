@@ -9,12 +9,12 @@ local M = {
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
-	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-	keymap(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
-	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
+	-- keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+	-- keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+	-- keymap(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
+	-- keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
+	-- keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+	-- keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 end
 
 M.on_attach = function(client, bufnr)
@@ -40,28 +40,28 @@ function M.config()
 	local wk = require("which-key")
 	local mappings = {
 		{ "<leader>l", group = "LSP" },
-		{ "<leader>la", "<cmd>Lspsaga code_action<cr>", desc = "Code action" },
+		-- { "<leader>la", "<cmd>Lspsaga code_action<cr>", desc = "Code action" },
 		{
 			"<leader>lf",
 			"<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
 			desc = "Format",
 		},
 		{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
-		{ "<leader>lb", "<cmd>Lspsaga show_buf_diagnostics<cr>", desc = "Buffer diagnostics" },
-		{ "<leader>ld", "<cmd>Lspsaga show_workspace_diagnostics<cr>", desc = "Workspace diagnostics" },
-		{ "<leader>ll", "<cmd>Lspsaga show_line_diagnostics<cr>", desc = "CodeLens action" },
-		{ "<leader>lj", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Next diagnostic" },
-		{ "<leader>lh", "<cmd>lua require('user.lspconfig').toggle_inlay_hints()<cr>", desc = "Hints" },
-		{ "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Prev diagnostic" },
-		{ "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Quickfix" },
-		{ "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
+		-- { "<leader>lb", "<cmd>Lspsaga show_buf_diagnostics<cr>", desc = "Buffer diagnostics" },
+		-- { "<leader>ld", "<cmd>Lspsaga show_workspace_diagnostics<cr>", desc = "Workspace diagnostics" },
+		-- { "<leader>ll", "<cmd>Lspsaga show_line_diagnostics<cr>", desc = "CodeLens action" },
+		-- { "<leader>lj", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Next diagnostic" },
+		-- { "<leader>lh", "<cmd>lua require('user.lspconfig').toggle_inlay_hints()<cr>", desc = "Hints" },
+		-- { "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Prev diagnostic" },
+		-- { "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Quickfix" },
+		-- { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
 	}
 
 	wk.add(mappings)
 
-	wk.add({
-		{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code action", mode = "v" },
-	})
+	-- wk.add({
+	-- 	{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code action", mode = "v" },
+	-- })
 
 	local lspconfig = require("lspconfig")
 	local icons = require("user.icons")
