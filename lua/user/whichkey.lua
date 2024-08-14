@@ -16,14 +16,15 @@ function M.config()
 --	}
 
   local mappings = {
-    -- Leader groups
-    { "<leader>f", desc = "Files" },
+    -- Groups
+    { "<leader>f", desc = "Find" },
     { "<leader>b", desc = "Buffers" },
     { "<leader>g", desc = "Git" },
     { "<leader>l", desc = "LSP" },
-    { "<leader>s", desc = "Search" },
-    
     -- Actions
+    { "<leader>bd", "<cmd>bp|bd #<cr>", desc = "Delete" },
+    { "<leader>bp", "<cmd>bp<cr>", desc = "Previous" },
+    { "<leader>bn", "<cmd>bn<cr>", desc = "Next" },
 
   }
 	local opts = {
