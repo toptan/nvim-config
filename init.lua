@@ -18,6 +18,7 @@ spec("user.lspconfig")
 spec("user.none-ls")
 spec("user.treesitter")
 spec("user.gitsigns")
+spec("user.cmp")
 
 require("user.lazy")
 
