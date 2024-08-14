@@ -11,8 +11,11 @@ spec("user.nvimtree")
 spec("user.todo")
 spec("user.comment")
 spec("user.neogit")
-
 spec("user.alpha")
+spec("user.mason")
+spec("user.mason-null-ls")
+spec("user.lspconfig")
+spec("user.none-ls")
 
 require("user.lazy")
 
