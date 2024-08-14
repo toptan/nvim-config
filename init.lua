@@ -12,7 +12,7 @@ spec("user.todo")
 spec("user.comment")
 spec("user.neogit")
 
--- spec("user.alpha")
+spec("user.alpha")
 
 require("user.lazy")
 
