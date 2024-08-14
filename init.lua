@@ -17,6 +17,7 @@ spec("user.mason-null-ls")
 spec("user.lspconfig")
 spec("user.none-ls")
 spec("user.treesitter")
+spec("user.gitsigns")
 
 require("user.lazy")
 
