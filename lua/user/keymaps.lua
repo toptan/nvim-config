@@ -75,4 +75,4 @@ keymap({ "n", "x" }, "k", "gk", opts)
 -- vim.api.nvim_set_keymap('t', '<C-;>', '<C-\\><C-n>', opts)
 
 -- TODO: Do I need this?
--- keymap("n", "<C-e>", ":NvimTreeFocus<cr>", { silent = true, noremap = true, desc = "Focus file explorer" })
+keymap("n", "<C-e>", ":NvimTreeFocus<cr>", { silent = true, noremap = true, desc = "Focus file explorer" })

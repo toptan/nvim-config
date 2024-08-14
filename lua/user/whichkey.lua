@@ -16,12 +16,13 @@ function M.config()
 --	}
 
   local mappings = {
-    -- Groups
+    -- Leader groups
     { "<leader>f", desc = "Files" },
     { "<leader>b", desc = "Buffers" },
     { "<leader>g", desc = "Git" },
     { "<leader>l", desc = "LSP" },
     { "<leader>s", desc = "Search" },
+    
     -- Actions
 
   }

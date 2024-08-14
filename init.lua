@@ -5,11 +5,12 @@ require("user.autocmds")
 
 spec("user.colorschemes.kanagawa")
 spec("user.whichkey")
+spec("user.toggleterm")
+spec("user.devicons")
+spec("user.nvimtree")
+spec("user.todo")
 
 -- spec("user.alpha")
--- spec("user.devicons")
--- spec("user.toggleterm")
--- spec("user.nvimtree")
 
 require("user.lazy")
 
