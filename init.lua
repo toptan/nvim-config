@@ -17,5 +17,6 @@ spec("user.plugins.toggleterm")
 spec("user.plugins.lazydev")
 spec("user.plugins.neogit")
 spec("user.plugins.mason")
+spec("user.plugins.nvim-cmp")
 
 require("user.lazy")
