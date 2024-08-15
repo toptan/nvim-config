@@ -15,5 +15,7 @@ spec("user.plugins.mini")
 spec("user.plugins.treesitter")
 spec("user.plugins.toggleterm")
 spec("user.plugins.lazydev")
+spec("user.plugins.neogit")
+spec("user.plugins.mason")
 
 require("user.lazy")
