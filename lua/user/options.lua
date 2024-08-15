@@ -64,6 +64,9 @@ vim.opt.inccommand = 'split'
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
+-- Show vertical line at 80th character
+vim.opt.colorcolumn = '80'
+
 -- Minimal number of screenlines to keep above and bellow the cursor.
 vim.opt.scrolloff = 10
 
