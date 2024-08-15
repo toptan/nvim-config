@@ -13,6 +13,7 @@ spec("user.plugins.telescope")
 spec("user.plugins.todo")
 spec("user.plugins.mini")
 spec("user.plugins.treesitter")
+spec("user.plugins.toggleterm")
 spec("user.plugins.lazydev")
 
 require("user.lazy")
