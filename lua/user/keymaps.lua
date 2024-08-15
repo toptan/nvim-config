@@ -14,6 +14,10 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<M-tab>", "<C-6>", opts)
 
+-- Buffer navigation
+keymap("n", "<Tab>", "<cmd>bnext<cr>", opts)
+keymap("n", "<S-Tab>", "<cmd>bprevious<cr>", opts)
+
 -- TODO: Do I need this?
 -- keymap("n", "n", "nzz", opts)
 -- keymap("n", "N", "Nzz", opts)
@@ -37,23 +41,23 @@ keymap("v", ">", ">gv", opts)
 -- vim.keymap.set("n", "<Tab>", "<cmd>:popup mousemenu<CR>")
 
 keymap(
-	"n",
-	"<leader>lt",
-	(function()
-		local diag_status = 1 -- 1 is show; 0 is hide
-		return function()
-			if diag_status == 1 then
-				diag_status = 0
-				vim.diagnostic.hide()
-			else
-				diag_status = 1
-				vim.diagnostic.show()
-			end
-		end
-	end)(),
-	{
-		desc = "Toggle inlay hints",
-	}
+  "n",
+  "<leader>lt",
+  (function()
+    local diag_status = 1 -- 1 is show; 0 is hide
+    return function()
+      if diag_status == 1 then
+        diag_status = 0
+        vim.diagnostic.hide()
+      else
+        diag_status = 1
+        vim.diagnostic.show()
+      end
+    end
+  end)(),
+  {
+    desc = "Toggle line diagnostics",
+  }
 )
 
 -- TODO: Do I need this?
@@ -70,4 +74,5 @@ keymap({ "n", "x" }, "k", "gk", opts)
 -- TODO: Do I need this?
 -- vim.api.nvim_set_keymap('t', '<C-;>', '<C-\\><C-n>', opts)
 
+-- TODO: Do I need this?
 keymap("n", "<C-e>", ":NvimTreeFocus<cr>", { silent = true, noremap = true, desc = "Focus file explorer" })

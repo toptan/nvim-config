@@ -34,7 +34,7 @@ function M.config()
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diagnostics" },
 			lualine_c = { "filename" },
-			lualine_x = { "diff", "spaces", "filetype" },
+			lualine_x = { diff, spaces, "filetype" },
 			lualine_y = { "location" },
 			lualine_z = { "progress" },
 		},
@@ -46,7 +46,7 @@ function M.config()
 			lualine_y = {},
 			lualine_z = {},
 		},
-    tabline = {},
+		tabline = {},
 		extensions = { "quickfix", "man", "fugitive" },
 	})
 end

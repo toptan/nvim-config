@@ -1,35 +1,56 @@
 local M = {
 	"goolord/alpha-nvim",
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
 	event = "VimEnter",
 }
+
+local function header_func()
+  local hour = tonumber(vim.fn.strftime("%H"))
+  -- [04:00, 12:00) - morning, [12:00, 20:00) - day, [20:00, 04:00) - evening
+  local part_id = math.floor((hour + 4) / 8) + 1
+  local day_part = ({ "evening", "morning", "afternoon", "evening" })[part_id]
+  local username = vim.loop.os_get_passwd()["username"] or "USERNAME"
+
+  return ("Good %s, %s!"):format(day_part, username)
+end
 
 function M.config()
 	local dashboard = require("alpha.themes.dashboard")
 
-	dashboard.section.header.val = {
-		[[          ██╗   ██╗███╗   ██╗██╗██╗  ██╗]],
-		[[          ██║   ██║████╗  ██║██║╚██╗██╔╝]],
-		[[          ██║   ██║██╔██╗ ██║██║ ╚███╔╝ ]],
-		[[          ██║   ██║██║╚██╗██║██║ ██╔██╗ ]],
-		[[           ██████╔╝██║ ╚████║██║██╔╝ ██╗]],
-		[[           ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝]],
-		[[]],
-		[[                        ██╗    ]],
-		[[                        ██║    ]],
-		[[                    ██████████╗]],
-		[[                    ╚═══██╔═══╝]],
-		[[                        ██║    ]],
-		[[                        ╚═╝    ]],
-		[[]],
-		[[███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
-		[[████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
-		[[██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
-		[[██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║]],
-		[[██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║]],
-		[[╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
-		[[                                                  ]],
-		[[     Where there is a shell, there is a way.      ]],
-	}
+	-- dashboard.section.header.val = {
+	-- 	[[          ██╗   ██╗███╗   ██╗██╗██╗  ██╗]],
+	-- 	[[          ██║   ██║████╗  ██║██║╚██╗██╔╝]],
+	-- 	[[          ██║   ██║██╔██╗ ██║██║ ╚███╔╝ ]],
+	-- 	[[          ██║   ██║██║╚██╗██║██║ ██╔██╗ ]],
+	-- 	[[           ██████╔╝██║ ╚████║██║██╔╝ ██╗]],
+	-- 	[[           ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝]],
+	-- 	[[]],
+	-- 	[[                        ██╗    ]],
+	-- 	[[                        ██║    ]],
+	-- 	[[                    ██████████╗]],
+	-- 	[[                    ╚═══██╔═══╝]],
+	-- 	[[                        ██║    ]],
+	-- 	[[                        ╚═╝    ]],
+	-- 	[[]],
+	-- 	[[███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
+	-- 	[[████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
+	-- 	[[██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
+	-- 	[[██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║]],
+	-- 	[[██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║]],
+	-- 	[[╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
+	-- 	[[                                                  ]],
+	-- 	[[     Where there is a shell, there is a way.      ]],
+	-- }
+
+  dashboard.section.header.val = { 
+    [[]],
+    [[]],
+    [[]],
+    [[]],
+    header_func(),
+    [[]],
+    [[Where there is a shell, there is a way.]],
+  }
 
 	local footer = {
 		[[]],
@@ -51,9 +72,9 @@ function M.config()
 		dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 	}
 
-	dashboard.section.header.opts.hl = "Character"
-	dashboard.section.buttons.opts.hl = "Include"
-	dashboard.section.footer.opts.hl = "Type"
+	-- dashboard.section.header.opts.hl = "Function"
+	-- dashboard.section.buttons.opts.hl = "Function"
+	-- dashboard.section.footer.opts.hl = "Type"
 
 	require("alpha").setup(dashboard.opts)
 
