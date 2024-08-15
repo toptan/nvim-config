@@ -12,5 +12,6 @@ spec("user.plugins.gitsigns")
 spec("user.plugins.telescope")
 spec("user.plugins.todo")
 spec("user.plugins.mini")
+spec("user.plugins.treesitter")
 
 require("user.lazy")
