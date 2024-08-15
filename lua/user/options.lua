@@ -73,6 +73,12 @@ vim.opt.scrolloff = 10
 -- Expand tabs into spaces
 vim.opt.expandtab = true
 
+-- The number of spaces inserted for each indentation
+vim.opt.shiftwidth = 2
+
+-- Insert 2 spaces for a tab
+vim.opt.tabstop = 2
+
 -- Disable ruby, perl and node provider warnings.
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0

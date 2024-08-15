@@ -18,5 +18,7 @@ spec("user.plugins.lazydev")
 spec("user.plugins.neogit")
 spec("user.plugins.mason")
 spec("user.plugins.nvim-cmp")
+spec("user.plugins.none-ls")
+spec("user.plugins.lspconfig")
 
 require("user.lazy")
