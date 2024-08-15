@@ -10,5 +10,6 @@ spec("user.plugins.whichkey")
 spec("user.plugins.sleuth")
 spec("user.plugins.gitsigns")
 spec("user.plugins.telescope")
+spec("user.plugins.todo")
 
 require("user.lazy")
