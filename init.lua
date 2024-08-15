@@ -19,6 +19,9 @@ spec("user.none-ls")
 spec("user.treesitter")
 spec("user.gitsigns")
 spec("user.cmp")
+spec("user.lualine")
+spec("user.projects")
+spec("user.telescope")
 
 require("user.lazy")
 
