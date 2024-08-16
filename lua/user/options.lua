@@ -1,8 +1,8 @@
 -- Set <space> as the leader key
 -- See: `help: mapleader`
 -- NOTE: Must happen before plugins are loaded, otherwise wrong leader will be used.
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Enable if you have nerd font.
 vim.g.have_nerd_font = true
@@ -25,7 +25,7 @@ vim.opt.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
+	vim.opt.clipboard = "unnamedplus"
 end)
 
 -- Enable break indent
@@ -39,7 +39,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -56,16 +56,16 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live as you type.
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
 -- Show vertical line at 80th character
-vim.opt.colorcolumn = '80'
+vim.opt.colorcolumn = "80"
 
 -- Minimal number of screenlines to keep above and bellow the cursor.
 vim.opt.scrolloff = 10
@@ -85,8 +85,8 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
 -- Set python executable based on the operating system.
-if vim.loop.os_uname()["sysname"] == "Darwin" then 
-  vim.g.python3_host_prog = "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
+if vim.loop.os_uname()["sysname"] == "Darwin" then
+	vim.g.python3_host_prog = "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
 elseif vim.loop.os_uname()["sysname"] == "Linux" then
-  vim.g.python3_host_prog = "/usr/bin/python3"
+	vim.g.python3_host_prog = "/usr/bin/python3"
 end

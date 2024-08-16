@@ -11,8 +11,8 @@ function M.config()
   local cfg = {
     ensure_installed = {
       "black",
-      -- "clang-format",
-      -- "cmakelang",
+      "clang-format",
+      "cmakelang",
       "jq",
       "prettier",
       "stylua",
