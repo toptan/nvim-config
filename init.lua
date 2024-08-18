@@ -11,6 +11,8 @@ spec("user.colorscheme.kanagawa")
 spec("user.plugins.toggleterm")
 spec("user.plugins.whichkey")
 spec("user.plugins.todo")
+spec("user.plugins.gitsigns")
+spec("user.plugins.neogit")
 
 -- NOTE: This has to come after all plugins are specified.
 require("user.lazy")

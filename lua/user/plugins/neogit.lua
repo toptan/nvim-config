@@ -27,6 +27,8 @@ function M.config()
       hunk = { "", "" },
     },
   }
+
+  require("neogit").setup(opts)
 end
 
 return M
