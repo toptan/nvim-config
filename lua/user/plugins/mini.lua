@@ -61,8 +61,25 @@ function M.config()
     header = header_func(),
     footer = footer_func(),
   }
-
   require("mini.starter").setup(starter_opts)
+
+  -- Configure highlighting of the word under cursor.
+  _G.cursorword_blocklist = function()
+    local curword = vim.fn.expand('<cword>')
+    local filetype = vim.bo.filetype
+
+    -- Add any disabling global or filetype-specific logic here
+    local blocklist = {}
+    if filetype == 'lua' then
+      blocklist = { 'local', 'require' }
+    elseif filetype == 'javascript' then
+      blocklist = { 'import' }
+    end
+
+    vim.b.minicursorword_disable = vim.tbl_contains(blocklist, curword)
+  end
+  vim.cmd('au CursorMoved * lua _G.cursorword_blocklist()')
+  require("mini.cursorword").setup()
 end
 
 return M

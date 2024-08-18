@@ -5,7 +5,7 @@ local M = {
 }
 
 function M.setup()
-	require("kanagawa").setup({})
+	require("kanagawa").setup()
 end
 
 return M
