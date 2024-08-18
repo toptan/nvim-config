@@ -13,6 +13,7 @@ spec("user.plugins.whichkey")
 spec("user.plugins.todo")
 spec("user.plugins.gitsigns")
 spec("user.plugins.neogit")
+spec("user.plugins.mini")
 
 -- NOTE: This has to come after all plugins are specified.
 require("user.lazy")
