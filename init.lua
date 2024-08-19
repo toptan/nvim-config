@@ -15,6 +15,7 @@ spec("user.plugins.gitsigns")
 spec("user.plugins.neogit")
 spec("user.plugins.mini")
 spec("user.plugins.telescope")
+spec("user.plugins.nvim-cmp")
 
 -- NOTE: This has to come after all plugins are specified.
 require("user.lazy")
