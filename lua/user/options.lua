@@ -25,7 +25,7 @@ vim.opt.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
+  vim.opt.clipboard = "unnamedplus"
 end)
 
 -- Enable break indent
@@ -86,7 +86,7 @@ vim.g.loaded_perl_provider = 0
 
 -- Set python executable based on the operating system.
 if vim.loop.os_uname()["sysname"] == "Darwin" then
-	vim.g.python3_host_prog = "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
+  vim.g.python3_host_prog = "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
 elseif vim.loop.os_uname()["sysname"] == "Linux" then
-	vim.g.python3_host_prog = "/usr/bin/python3"
+  vim.g.python3_host_prog = "/usr/bin/python3"
 end

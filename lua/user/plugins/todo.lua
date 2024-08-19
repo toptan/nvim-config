@@ -10,7 +10,9 @@ function M.config()
   local opts = {
     signs = true,
   }
-  require("todo-comments").setup(opts)
+  local todo = require("todo-comments")
+  todo.setup(opts)
+  vim.keymap.set("n", "<leader>st", ":TodoTelescope<cr>", { desc = "[S]earch [T]odos" })
 end
 
 return M
