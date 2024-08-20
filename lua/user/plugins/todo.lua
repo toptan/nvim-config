@@ -12,7 +12,12 @@ function M.config()
   }
   local todo = require("todo-comments")
   todo.setup(opts)
-  vim.keymap.set("n", "<leader>st", ":TodoTelescope<cr>", { desc = "[S]earch [T]odos" })
+  vim.keymap.set(
+    "n",
+    "<leader>st",
+    ":TodoTelescope<cr>",
+    { desc = "[S]earch [T]odos" }
+  )
 end
 
 return M

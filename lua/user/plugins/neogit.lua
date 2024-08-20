@@ -5,11 +5,16 @@ local M = {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
-  }
+  },
 }
 
 function M.config()
-  vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>", { desc = "Open Neo[G]it" })
+  vim.keymap.set(
+    "n",
+    "<leader>gg",
+    "<cmd>Neogit<cr>",
+    { desc = "Open Neo[G]it" }
+  )
 
   local icons = require("user.icons")
   local opts = {

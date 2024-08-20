@@ -17,7 +17,10 @@ spec("user.plugins.mini")
 spec("user.plugins.telescope")
 spec("user.plugins.nvim-cmp")
 spec("user.plugins.mason")
+spec("user.plugins.mason-null-ls")
+spec("user.plugins.none-ls")
 spec("user.plugins.lspconfig")
+spec("user.plugins.treesitter")
 
 -- NOTE: This has to come after all plugins are specified.
 require("user.lazy")

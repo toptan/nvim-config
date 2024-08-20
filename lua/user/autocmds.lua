@@ -6,12 +6,17 @@
 --  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",
-  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+  group = vim.api.nvim_create_augroup(
+    "kickstart-highlight-yank",
+    { clear = true }
+  ),
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
+-- TODO: This needs fixing as somehow it gets overriden or something when LSP
+-- is attached.
 -- Configure highlighting of the word under cursor
 local function cursorword_blocklist()
   local curword = vim.fn.expand("<cword>")
@@ -27,11 +32,9 @@ local function cursorword_blocklist()
 
   vim.b.minicursorword_disable = vim.tbl_contains(blocklist, curword)
 end
-  -- vim.cmd('au CursorMoved * lua _G.cursorword_blocklist()')
+-- vim.cmd('au CursorMoved * lua _G.cursorword_blocklist()')
 vim.api.nvim_create_autocmd("CursorMoved", {
   desc = "Disable highlight of certain words under the cursor",
   group = vim.api.nvim_create_augroup("kickstart-cursor-moved", {}),
   callback = cursorword_blocklist,
 })
-
-
