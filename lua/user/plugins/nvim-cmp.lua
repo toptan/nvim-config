@@ -1,6 +1,6 @@
 local M = {
   "hrsh7th/nvim-cmp",
-  event = "InsertEnter",
+  event = { "InsertEnter", "CmdLineEnter" },
   dependencies = {
     -- TODO: Figure out if we really need/want LuaSnip
     {
@@ -20,12 +20,15 @@ function M.config()
   local cmp = require("cmp")
 
   luasnip.config.setup()
-
   local opts = {
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
       end,
+    },
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
     },
     completion = { completeopt = "menu,menuone,noinsert" },
     -- For an understanding of why these mappings were
@@ -87,9 +90,9 @@ function M.config()
       --   group_index = 0,
       -- },
       { name = "nvim_lsp" },
-      -- { name = 'luasnip' },
-      { name = "path" },
       { name = "nvim_lsp_signature_help" },
+      { name = "luasnip" },
+      { name = "path" },
     },
   }
   cmp.setup(opts)
