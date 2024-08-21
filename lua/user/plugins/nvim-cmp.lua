@@ -10,6 +10,7 @@ local M = {
     -- TODO: Add more completion sources if needed.
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-path",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
     -- "saadparwaiz1/cmp_luasnip",
   },
 }
@@ -88,6 +89,7 @@ function M.config()
       { name = "nvim_lsp" },
       -- { name = 'luasnip' },
       { name = "path" },
+      { name = "nvim_lsp_signature_help" },
     },
   }
   cmp.setup(opts)

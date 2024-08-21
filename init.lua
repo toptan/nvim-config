@@ -21,9 +21,10 @@ spec("user.plugins.mason-null-ls")
 spec("user.plugins.none-ls")
 spec("user.plugins.lspconfig")
 spec("user.plugins.treesitter")
+spec("user.plugins.projects")
 
 -- NOTE: This has to come after all plugins are specified.
 require("user.lazy")
 
 -- TODO: Figure out a better way to set colorscheme.
-vim.cmd("colorscheme tokyonight-night")
+-- vim.cmd("colorscheme tokyonight-night")
