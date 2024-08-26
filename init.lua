@@ -23,6 +23,7 @@ spec("user.plugins.lspconfig")
 spec("user.plugins.treesitter")
 spec("user.plugins.projects")
 spec("user.plugins.autopairs")
+spec("user.plugins.comment")
 
 -- NOTE: This has to come after all plugins are specified.
 require("user.lazy")

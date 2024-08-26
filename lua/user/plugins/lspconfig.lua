@@ -241,6 +241,14 @@ function M.config()
     end
 
     lspconfig[server].setup(opts)
+    if server == "clangd" then
+      vim.keymap.set(
+        "n",
+        "<leader>c<leader>",
+        ":ClangdSwitchSourceHeader<cr>",
+        { desc = "LSP: " .. "Switch Header/Source" }
+      )
+    end
 
     local function setup_lsp_diags()
       vim.lsp.handlers["textDocument/publishDiagnostics"] =
