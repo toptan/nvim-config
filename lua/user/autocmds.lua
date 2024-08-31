@@ -15,26 +15,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- TODO: This needs fixing as somehow it gets overriden or something when LSP
--- is attached.
--- Configure highlighting of the word under cursor
-local function cursorword_blocklist()
-  local curword = vim.fn.expand("<cword>")
-  local filetype = vim.bo.filetype
-
-  -- Add any disabling global or file specific logic here
-  local blocklist = {}
-  if filetype == "lua" then
-    blocklist = { "local", "require", "spec" }
-  elseif filetype == "javascript" then
-    blocklist = { "import" }
-  end
-
-  vim.b.minicursorword_disable = vim.tbl_contains(blocklist, curword)
-end
--- vim.cmd('au CursorMoved * lua _G.cursorword_blocklist()')
-vim.api.nvim_create_autocmd("CursorMoved", {
-  desc = "Disable highlight of certain words under the cursor",
-  group = vim.api.nvim_create_augroup("kickstart-cursor-moved", {}),
-  callback = cursorword_blocklist,
+-- NOTE: There must be a better way to set comment string for C++
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "Fixing comment string for C++",
+  group = vim.api.nvim_create_augroup("FixCppCommentString", { clear = true }),
+  callback = function(event)
+    vim.bo[event.buf].commentstring = "// %s"
+  end,
+  pattern = { "cpp", "hpp" },
 })
+

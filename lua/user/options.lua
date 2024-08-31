@@ -79,9 +79,8 @@ vim.opt.shiftwidth = 4
 -- Insert 2 spaces for a tab
 vim.opt.tabstop = 4
 
--- Disable ruby, perl and node provider warnings.
+-- Disable ruby and perl provider warnings.
 vim.g.loaded_ruby_provider = 0
-vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
 -- Set python executable based on the operating system.
