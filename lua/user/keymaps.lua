@@ -41,7 +41,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 -- Exit terminal mode easier. The default is <C-\><C-n>
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc.
-vim.keymap.set("n", "<Esc><Esc>", "<C-'><C-n>", { desc = "Exit terminal mode" })
+-- vim.keymap.set("n", "<Esc><Esc>", "<C-'><C-n>", { desc = "Exit terminal mode" })
 
 -- Keybinds to make split navigation easier
 vim.keymap.set(
