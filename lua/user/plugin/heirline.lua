@@ -2,7 +2,7 @@ local M = {
     "rebelot/heirline.nvim",
 }
 
-local ViMode = {
+local Mode = {
     -- get vim current mode, this information will be required by the provider
     -- and the highlight functions, so we compute it only once per component
     -- evaluation and store it as a component attribute
@@ -91,16 +91,16 @@ local ViMode = {
     },
 }
 
-function M.setup()
+function M.config()
     local conditions = require("heirline.conditions")
     local utils = require("heirline.utils")
     local colors = require("tokyonight.colors").setup()
 
-    local statusline = {
-        VImode,
+    local StatusLine = {
+        Mode,
     }
     local options = {
-        statusline = statusline,
+        statusline = StatusLine,
         opts = {
             colors = colors,
         }

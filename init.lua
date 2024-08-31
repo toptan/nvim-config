@@ -11,8 +11,8 @@ spec("user.colorscheme.everforest")
 
 -- Load plugins.
 spec("user.plugin.mini-icons")
-spec("user.plugin.treesitter")
 spec("user.plugin.noice")
+spec("user.plugin.treesitter")
 spec("user.plugin.which-key")
 spec("user.plugin.nvim-tree")
 spec("user.plugin.todo-comments")
