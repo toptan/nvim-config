@@ -8,6 +8,7 @@ function M.config()
   local mappings = {
     -- Groups
     { "<leader>t", desc = "[T]oggle" },
+    { "<leader>s", desc = "[S]earch" },
   }
 
   wk.setup()

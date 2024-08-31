@@ -3,9 +3,6 @@ local M = {
   version = false,
   lazy = false,
   priority = 1000,
-  init = function()
-    vim.cmd.colorscheme("everforest")
-  end,
 }
 
 function M.setup()

@@ -6,7 +6,7 @@ local M = {
 function M.config()
 	local wk = require("which-key")
 	wk.add({
-		{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "[E]xplorer" },
+		{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "File [E]xplorer" },
 	})
 
 	require("nvim-tree").setup()

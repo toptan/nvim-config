@@ -69,7 +69,7 @@ vim.keymap.set(
   { desc = "Move focus to the upper window" }
 )
 
--- Buffer navigation
+-- Buffer navigation and closing
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set(
   "n",
@@ -77,11 +77,12 @@ vim.keymap.set(
   "<cmd>bprevious<cr>",
   { desc = "Previous buffer" }
 )
+vim.keymap.set("n", "<leader>x", "<cmd>lua MiniBufremove.delete()<cr>", { desc = "Delete buffer" })
 
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv", { desc = "Decrease indent" })
 vim.keymap.set("v", ">", ">gv", { desc = "Increase indent" })
 
 -- Toggling precognition and hardtime plugins
-vim.keymap.set("n", "<leader>th", "<cmd>Hardtime toggle<cr>", { desc = "[T]oggle [H]ard time" })
-vim.keymap.set("n", "<leader>tp", "<cmd>Precognition toggle<cr>", { desc = "[T]oggle [P]recognition" })
+vim.keymap.set("n", "<leader>th", "<cmd>Hardtime toggle<cr>", { desc = "[H]ard time" })
+vim.keymap.set("n", "<leader>tp", "<cmd>Precognition toggle<cr>", { desc = "[P]recognition" })
