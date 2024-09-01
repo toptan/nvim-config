@@ -1,78 +1,103 @@
-local keymap = vim.keymap.set
-local opts = { noremap = true, silent = true }
+-- [[ Basic Keymaps ]]
+--  See `:help vim.keymap.set()`
 
-keymap("n", "<Space>", "", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 
-keymap("n", "<C-i>", "<C-i>", opts)
+-- Diagnostic keymaps
+-- TODO: Figure out better key sequence
+-- vim.keymap.set(
+--   "n",
+--   "<leader>q",
+--   vim.diagnostic.setloclist,
+--   { desc = "Open diagnostic [Q]uickfix list" }
+-- )
+-- The following code creates a keymap to toggle inlay hints in your
+-- code, if the language server you are using supports them
+--
+-- This may be unwanted, since they displace some of your code
+-- TODO: Figure out better key sequence.
+-- vim.keymap.set(
+--   "n",
+--   "<leader>th",
+--   (function()
+--     local diag_status = 1 -- 1 is show; 0 is hide
+--     return function()
+--       if diag_status == 1 then
+--         diag_status = 0
+--         vim.diagnostic.hide()
+--       else
+--         diag_status = 1
+--         vim.diagnostic.show()
+--       end
+--     end
+--   end)(),
+--   {
+--     desc = "[T]oggle inlay [H]ints",
+--   }
+-- )
 
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
-keymap("n", "<M-tab>", "<C-6>", opts)
+-- Exit terminal mode easier. The default is <C-\><C-n>
+--
+-- NOTE: This won't work in all terminal emulators/tmux/etc.
+-- vim.keymap.set("n", "<Esc><Esc>", "<C-'><C-n>", { desc = "Exit terminal mode" })
 
--- Buffer navigation
-keymap("n", "<Tab>", "<cmd>bnext<cr>", opts)
-keymap("n", "<S-Tab>", "<cmd>bprevious<cr>", opts)
-
--- TODO: Do I need this?
--- keymap("n", "n", "nzz", opts)
--- keymap("n", "N", "Nzz", opts)
--- keymap("n", "*", "*zz", opts)
--- keymap("n", "#", "#zz", opts)
--- keymap("n", "g*", "g*zz", opts)
--- keymap("n", "g#", "g#zz", opts)
-
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
-
--- TODO: Do I need this?
--- keymap("x", "p", [["_dP]])
-
--- TODO: Do I need this?
--- vim.cmd([[:amenu 10.100 mousemenu.Goto\ Definition <cmd>lua vim.lsp.buf.definition()<CR>]])
--- vim.cmd([[:amenu 10.110 mousemenu.References <cmd>lua vim.lsp.buf.references()<CR>]])
--- vim.cmd [[:amenu 10.120 mousemenu.-sep- *]]
--- vim.keymap.set("n", "<RightMouse>", "<cmd>:popup mousemenu<CR>")
--- vim.keymap.set("n", "<Tab>", "<cmd>:popup mousemenu<CR>")
-
-keymap(
+-- Keybinds to make split navigation easier
+vim.keymap.set(
   "n",
-  "<leader>lt",
-  (function()
-    local diag_status = 1 -- 1 is show; 0 is hide
-    return function()
-      if diag_status == 1 then
-        diag_status = 0
-        vim.diagnostic.hide()
-      else
-        diag_status = 1
-        vim.diagnostic.show()
-      end
-    end
-  end)(),
-  {
-    desc = "Toggle line diagnostics",
-  }
+  "<C-h>",
+  "<C-w><C-h>",
+  { desc = "Move focus to the left window" }
+)
+vim.keymap.set(
+  "n",
+  "<C-l>",
+  "<C-w><C-l>",
+  { desc = "Move focus to the right window" }
+)
+vim.keymap.set(
+  "n",
+  "<C-j>",
+  "<C-w><C-j>",
+  { desc = "Move focus to the lower window" }
+)
+vim.keymap.set(
+  "n",
+  "<C-k>",
+  "<C-w><C-k>",
+  { desc = "Move focus to the upper window" }
 )
 
--- TODO: Do I need this?
--- keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
--- keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
+-- Buffer navigation and closing
+vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+vim.keymap.set(
+  "n",
+  "<S-Tab>",
+  "<cmd>bprevious<cr>",
+  { desc = "Previous buffer" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>x",
+  "<cmd>lua MiniBufremove.delete()<cr>",
+  { desc = "Delete buffer" }
+)
 
--- tailwind bearable to work with
-keymap({ "n", "x" }, "j", "gj", opts)
-keymap({ "n", "x" }, "k", "gk", opts)
+-- Stay in indent mode
+vim.keymap.set("v", "<", "<gv", { desc = "Decrease indent" })
+vim.keymap.set("v", ">", ">gv", { desc = "Increase indent" })
 
--- TODO: Do I need this?
--- keymap("n", "<leader>w", ":lua vim.wo.wrap = not vim.wo.wrap<CR>", opts)
-
--- TODO: Do I need this?
--- vim.api.nvim_set_keymap('t', '<C-;>', '<C-\\><C-n>', opts)
-
--- TODO: Do I need this?
-keymap("n", "<C-e>", ":NvimTreeFocus<cr>", { silent = true, noremap = true, desc = "Focus file explorer" })
+-- Toggling precognition and hardtime plugins
+vim.keymap.set(
+  "n",
+  "<leader>th",
+  "<cmd>Hardtime toggle<cr>",
+  { desc = "[H]ard time" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>tp",
+  "<cmd>Precognition toggle<cr>",
+  { desc = "[P]recognition" }
+)
