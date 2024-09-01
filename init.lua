@@ -13,6 +13,7 @@ spec("user.plugin.nvim-lspconfig")
 spec("user.plugin.todo-comments")
 spec("user.plugin.toggleterm")
 spec("user.plugin.project")
+spec("user.plugin.neogit")
 
 -- Enforcing good habbits/workflow.
 spec("user.plugin.hardtime")

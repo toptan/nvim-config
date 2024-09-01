@@ -8,6 +8,8 @@ function M.config()
   require("user.mini.icons").config()
   require("user.mini.notify").config()
   require("user.mini.pairs").config()
+  require("user.mini.indentscope").config()
+  require("user.mini.bufremove").config()
 end
 
 return M
