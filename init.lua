@@ -24,6 +24,10 @@ spec("user.plugin.telescope")
 spec("user.plugin.project")
 spec("user.plugin.aerial")
 spec("user.plugin.heirline")
+spec("user.plugin.mason-lspconfig")
+spec("user.plugin.mason-null-ls")
+spec("user.plugin.none-ls")
+spec("user.plugin.nvim-lspconfig")
 
 -- Enforcing good habbits/workflow.
 spec("user.plugin.hardtime")

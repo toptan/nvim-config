@@ -9,10 +9,11 @@ function M.config()
     -- Groups
     { "<leader>t", desc = "[T]oggle" },
     { "<leader>s", desc = "[S]earch" },
+    { "<leader>c", desc = "[C]ode" },
   }
 
   wk.setup()
-  wk.add(mappings, opts)
+  wk.add(mappings)
 end
 
 return M

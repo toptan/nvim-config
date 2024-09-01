@@ -1,6 +1,6 @@
 local M = {
   "antonk52/bad-practices.nvim",
-  name = "bad-practices", 
+  name = "bad-practices",
   event = "VeryLazy",
 }
 
