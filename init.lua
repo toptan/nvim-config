@@ -5,6 +5,7 @@ require("user.autocmds")
 
 -- Specifying plugins
 spec("user.plugin.mini")
+spec("user.plugin.nvim-treesitter")
 spec("user.plugin.mason-lsp-config")
 spec("user.plugin.mason-null-ls")
 spec("user.plugin.none-ls")
