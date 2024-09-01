@@ -4,6 +4,7 @@ local M = {
 }
 
 function M.config()
+  require("user.mini.misc").config()
   require("user.mini.icons").config()
   require("user.mini.notify").config()
 end

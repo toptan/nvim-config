@@ -7,6 +7,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 
 -- Diagnostic keymaps
 -- TODO: Figure out better key sequence
+--
 -- vim.keymap.set(
 --   "n",
 --   "<leader>q",
@@ -18,6 +19,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 --
 -- This may be unwanted, since they displace some of your code
 -- TODO: Figure out better key sequence.
+--
 -- vim.keymap.set(
 --   "n",
 --   "<leader>th",
@@ -41,6 +43,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 -- Exit terminal mode easier. The default is <C-\><C-n>
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc.
+--
 -- vim.keymap.set("n", "<Esc><Esc>", "<C-'><C-n>", { desc = "Exit terminal mode" })
 
 -- Keybinds to make split navigation easier

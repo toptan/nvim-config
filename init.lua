@@ -10,6 +10,8 @@ spec("user.plugin.mason-lsp-config")
 spec("user.plugin.mason-null-ls")
 spec("user.plugin.none-ls")
 spec("user.plugin.nvim-lspconfig")
+spec("user.plugin.todo-comments")
+spec("user.plugin.toggleterm")
 
 -- Enforcing good habbits/workflow.
 spec("user.plugin.hardtime")
