@@ -15,6 +15,10 @@ function M.config()
   require("user.mini.completion").config()
   require("user.mini.pick").config()
   require("user.mini.extra").config()
+  require("user.mini.cursorword").config()
+  require("user.mini.move").config()
+  require("user.mini.starter").config()
+  require("user.mini.git").config()
 end
 
 return M
