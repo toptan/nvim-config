@@ -9,7 +9,7 @@ vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
--- NOTE: For more options, see `:help option-list`
+-- NOTE: For more options, see `:help option-list`.
 
 -- Make line numbers default
 vim.opt.number = true

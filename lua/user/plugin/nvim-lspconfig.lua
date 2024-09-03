@@ -9,7 +9,7 @@ local M = {
 }
 
 M.on_attach = function(client, bufnr)
-  -- TODO: Configure keymaps here
+  -- TODO: Configure keymaps here.
 
   if client.supports_method("textDocument/inlayHint") then
     vim.lsp.inlay_hint.enable(true, { bufnr })
@@ -31,7 +31,7 @@ M.toggle_inlay_hints = function()
 end
 
 function M.config()
-  -- TODO: Set leader keystrokes here
+  -- TODO: Set leader keystrokes here.
   vim.keymap.set(
     "n",
     "<leader>cf",

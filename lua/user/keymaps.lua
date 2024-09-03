@@ -6,7 +6,7 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 
 -- Diagnostic keymaps
--- TODO: Figure out better key sequence
+-- TODO: Figure out better key sequence.
 --
 -- vim.keymap.set(
 --   "n",
@@ -103,4 +103,22 @@ vim.keymap.set(
   "<leader>tp",
   "<cmd>Precognition toggle<cr>",
   { desc = "[P]recognition" }
+)
+
+-- Custom pickers
+--
+-- Recent projects
+vim.keymap.set(
+  "n",
+  "<leader>sp",
+  "<cmd>lua require('user.search').recent_projects()<cr>",
+  { desc = "[P]rojects" }
+)
+
+-- Search for todos, notes, etc. via todo-comments.
+vim.keymap.set(
+  "n",
+  "<leader>sd",
+  "<cmd>lua require('user.search').todos()<cr>",
+  { desc = "To[D]os" }
 )
