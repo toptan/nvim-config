@@ -43,8 +43,8 @@ function M.config()
   local lspconfig = require("lspconfig")
   local servers = {
     "lua_ls",
-    -- "jsonls",
-    -- "yamlls",
+    "jsonls",
+    "yamlls",
     -- "pyright",
     -- "ruff",
     -- "pylsp",

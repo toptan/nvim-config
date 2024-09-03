@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- NOTE: There must be a better way to set comment string for C++
+-- NOTE: There must be a better way to set comment string for C++.
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Fixing comment string for C++",
   group = vim.api.nvim_create_augroup("FixCppCommentString", { clear = true }),

@@ -8,9 +8,9 @@ local M = {
 function M.config()
   local servers = {
     -- "bashls",
-    -- "jsonls",
+    "jsonls",
     "lua_ls",
-    -- "yamlls",
+    "yamlls",
     -- "pylsp",
     -- "pyright",
     -- "ruff",
