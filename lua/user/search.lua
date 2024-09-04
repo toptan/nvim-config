@@ -3,8 +3,12 @@ local P = require("project_nvim.utils.history")
 local M = {}
 
 local function cb_recent_projects(item)
-  vim.cmd("cd " .. item)
-  MiniPick.builtin.files()
+  vim.schedule(function()
+    vim.cmd("cd " .. item)
+    vim.schedule(function()
+      MiniPick.builtin.files()
+    end)
+  end)
   return false
 end
 

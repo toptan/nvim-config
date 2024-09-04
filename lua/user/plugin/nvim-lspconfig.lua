@@ -38,6 +38,18 @@ function M.config()
     "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
     { desc = "[F]ormat" }
   )
+  vim.keymap.set(
+    "n",
+    "<leader>ca",
+    "<cmd>lua vim.lsp.buf.code_action()<cr>",
+    { desc = "[A]ction" }
+  )
+  vim.keymap.set(
+    "v",
+    "<leader>ca",
+    "<cmd>lua vim.lsp.buf.code_action()<cr>",
+    { desc = "[A]ction" }
+  )
   vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "[I]nfo" })
   vim.keymap.set(
     "n",

@@ -6,18 +6,19 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 
 -- Diagnostic keymaps
--- TODO: Figure out better key sequence.
+-- TODO: Figure out better key sequence or integrate with Mini.pick
 --
 -- vim.keymap.set(
 --   "n",
 --   "<leader>q",
---   vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" }
+--   vim.diagnostic.setloclist,
+--   { desc = "Open diagnostic [Q]uickfix list" }
 -- )
+
 -- The following code creates a keymap to toggle inlay hints in your
 -- code, if the language server you are using supports them
 --
 -- This may be unwanted, since they displace some of your code
--- TODO: Figure out better key sequence.
 --
 vim.keymap.set(
   "n",
