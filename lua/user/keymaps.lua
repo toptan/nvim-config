@@ -11,8 +11,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 -- vim.keymap.set(
 --   "n",
 --   "<leader>q",
---   vim.diagnostic.setloclist,
---   { desc = "Open diagnostic [Q]uickfix list" }
+--   vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" }
 -- )
 -- The following code creates a keymap to toggle inlay hints in your
 -- code, if the language server you are using supports them
@@ -20,25 +19,25 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 -- This may be unwanted, since they displace some of your code
 -- TODO: Figure out better key sequence.
 --
--- vim.keymap.set(
---   "n",
---   "<leader>th",
---   (function()
---     local diag_status = 1 -- 1 is show; 0 is hide
---     return function()
---       if diag_status == 1 then
---         diag_status = 0
---         vim.diagnostic.hide()
---       else
---         diag_status = 1
---         vim.diagnostic.show()
---       end
---     end
---   end)(),
---   {
---     desc = "[T]oggle inlay [H]ints",
---   }
--- )
+vim.keymap.set(
+  "n",
+  "<leader>td",
+  (function()
+    local diag_status = 1 -- 1 is show; 0 is hide
+    return function()
+      if diag_status == 1 then
+        diag_status = 0
+        vim.diagnostic.hide()
+      else
+        diag_status = 1
+        vim.diagnostic.show()
+      end
+    end
+  end)(),
+  {
+    desc = "[D]iagnostics",
+  }
+)
 
 -- Exit terminal mode easier. The default is <C-\><C-n>
 --
@@ -94,9 +93,9 @@ vim.keymap.set("v", ">", ">gv", { desc = "Increase indent" })
 -- Toggling precognition and hardtime plugins
 vim.keymap.set(
   "n",
-  "<leader>th",
+  "<leader>tt",
   "<cmd>Hardtime toggle<cr>",
-  { desc = "[H]ard time" }
+  { desc = "Hard [T]ime" }
 )
 vim.keymap.set(
   "n",

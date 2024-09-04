@@ -39,9 +39,15 @@ function M.config()
     { desc = "[F]ormat" }
   )
   vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "[I]nfo" })
-
+  vim.keymap.set(
+    "n",
+    "<leader>th",
+    M.toggle_inlay_hints,
+    { desc = "Inlay [H]ints" }
+  )
   local lspconfig = require("lspconfig")
   local servers = {
+    "bashls",
     "lua_ls",
     "jsonls",
     "yamlls",
@@ -49,8 +55,8 @@ function M.config()
     -- "ruff",
     -- "pylsp",
     -- "lemminx",
-    -- "clangd",
-    -- "cmake",
+    "clangd",
+    "cmake",
   }
   local default_diagnostic_config = {
     signs = {
