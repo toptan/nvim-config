@@ -21,6 +21,7 @@ spec("user.plugin.todo-comments")
 spec("user.plugin.toggleterm")
 spec("user.plugin.project")
 spec("user.plugin.neogit")
+spec("user.plugin.gitsigns")
 
 -- Enforcing good habbits/workflow.
 spec("user.plugin.hardtime")

@@ -20,7 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = LAZY_PLUGIN_SPEC,
   install = {
-    colorscheme = { "retrobox", "tokyonight-night", "kanagawa-dragon", "default" },
+    colorscheme = { "tokyonight-night", "kanagawa-dragon", "default" },
   },
   ui = {
     border = "rounded",

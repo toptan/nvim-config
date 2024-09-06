@@ -12,7 +12,7 @@ function M.config()
     ensure_installed = {
       -- "black",
       -- "clang-format",
-      -- "cmakelang",
+      "cmakelang",
       -- "jq",
       -- "prettier",
       "stylua",
