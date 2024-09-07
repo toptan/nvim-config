@@ -16,6 +16,7 @@ spec("user.plugin.none-ls")
 spec("user.plugin.mason-null-ls")
 spec("user.plugin.mason-lspconfig")
 spec("user.plugin.nvim-lspconfig")
+spec("user.plugin.which-key")
 
 -- Workflow enforcing/training
 
