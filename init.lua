@@ -12,6 +12,10 @@ spec("user.plugin.mini-icons")
 -- Plugins
 spec("user.plugin.nvim-treesitter")
 spec("user.plugin.telescope")
+spec("user.plugin.none-ls")
+spec("user.plugin.mason-null-ls")
+spec("user.plugin.mason-lspconfig")
+spec("user.plugin.nvim-lspconfig")
 
 -- Workflow enforcing/training
 
