@@ -17,9 +17,9 @@ spec("user.plugin.mason-null-ls")
 spec("user.plugin.mason-lspconfig")
 spec("user.plugin.nvim-lspconfig")
 spec("user.plugin.which-key")
+spec("user.plugin.nvim-cmp")
 
 -- Workflow enforcing/training
-
 
 
 -- Plugin manager comes last

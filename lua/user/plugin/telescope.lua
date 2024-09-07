@@ -5,6 +5,7 @@ local M = {
         { "nvim-lua/plenary.nvim" },
         { "nvim-telescope/telescope-fzf-native.nvim" },
         { "nvim-telescope/telescope-ui-select.nvim" },
+        { "hrsh7th/nvim-cmp" },
     },
 }
 
@@ -34,7 +35,7 @@ function M.config()
     vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[H]elp" })
     vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[F]iles" })
     vim.keymap.set("n", "<leader>st", builtin.live_grep, { desc = "[T]ext" })
-
+    vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[B]uffers" })
     vim.keymap.set(
         "n",
         "<leader>cd",

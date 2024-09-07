@@ -5,6 +5,7 @@ local M = {
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig.nvim" },
         { "folke/neodev.nvim" },
+        { "hrsh7th/cmp-nvim-lsp" },
     },
 }
 
@@ -12,14 +13,14 @@ M.on_attach = function(client, bufnr)
     -- TODO: Configure keymaps here.
     vim.keymap.set(
         "n",
-        "gd",
-        ":lua vim.lsp.buf.declaration()<cr>",
+        "gD",
+        vim.lsp.buf.declaration,
         { desc = "Goto declaration" }
     )
     vim.keymap.set(
         "n",
-        "gD",
-        ":lua vim.lsp.buf.definition()<cr>",
+        "gd",
+        vim.lsp.buf.definition,
         { desc = "Goto definition" }
     )
 
@@ -31,6 +32,8 @@ end
 function M.common_capabilities()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
+    local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+    capabilities = vim.tbl_deep_extend("force", cmp_capabilities, capabilities)
     return capabilities
 end
 
