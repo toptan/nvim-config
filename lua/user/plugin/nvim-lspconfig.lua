@@ -10,6 +10,18 @@ local M = {
 
 M.on_attach = function(client, bufnr)
     -- TODO: Configure keymaps here.
+    vim.keymap.set(
+        "n",
+        "gd",
+        ":lua vim.lsp.buf.declaration()<cr>",
+        { desc = "Goto declaration" }
+    )
+    vim.keymap.set(
+        "n",
+        "gD",
+        ":lua vim.lsp.buf.definition()<cr>",
+        { desc = "Goto definition" }
+    )
 
     if client.supports_method("textDocument/inlayHint") then
         vim.lsp.inlay_hint.enable(true, { bufnr })
@@ -24,7 +36,10 @@ end
 
 M.toggle_inlay_hints = function()
     local bufnr = vim.api.nvim_get_current_buf()
-    vim.lsp.inlay_hint.enable( not vim.lsp.inlay_hint.is_enabled({ bufnr }), { bufnr })
+    vim.lsp.inlay_hint.enable(
+        not vim.lsp.inlay_hint.is_enabled({ bufnr }),
+        { bufnr }
+    )
 end
 
 function M.config()
@@ -94,7 +109,7 @@ function M.config()
     vim.diagnostic.config(default_diagnostic_config)
     for _, sign in
         ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {})
-        do
+    do
         vim.fn.sign_define(
             sign.name,
             { texthl = sign.name, text = sign.text, numhl = sign.name }
@@ -102,10 +117,10 @@ function M.config()
     end
 
     vim.lsp.handlers["textDocument/hover"] =
-    vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+        vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
     vim.lsp.handlers["textDocument/signatureHelp"] =
-    vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
     require("lspconfig.ui.windows").default_options.border = "rounded"
 
@@ -128,12 +143,12 @@ function M.config()
 
         local function setup_lsp_diags()
             vim.lsp.handlers["textDocument/publishDiagnostics"] =
-            vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-                virtual_text = true,
-                signs = true,
-                update_in_insert = false,
-                underline = true,
-            })
+                vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+                    virtual_text = true,
+                    signs = true,
+                    update_in_insert = false,
+                    underline = true,
+                })
         end
 
         setup_lsp_diags()
