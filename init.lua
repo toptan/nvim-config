@@ -18,6 +18,8 @@ spec("user.plugin.mason-lspconfig")
 spec("user.plugin.nvim-lspconfig")
 spec("user.plugin.which-key")
 spec("user.plugin.nvim-cmp")
+spec("user.plugin.gitsigns")
+spec("user.plugin.todo-comments")
 
 -- Workflow enforcing/training
 
