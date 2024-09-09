@@ -24,9 +24,9 @@ spec("user.plugin.neogit")
 spec("user.plugin.gitsigns")
 
 -- Enforcing good habbits/workflow.
-spec("user.plugin.hardtime")
+-- spec("user.plugin.hardtime")
 spec("user.plugin.precognition")
-spec("user.plugin.bad-practices")
+-- spec("user.plugin.bad-practices")
 
 -- This has to come AFTER all plugins are specified.
 require("user.lazy")
