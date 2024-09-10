@@ -5,6 +5,7 @@ require("user.keymaps")
 
 -- Colorschemes
 spec("user.colorscheme.catppuccin")
+spec("user.colorscheme.tokyonight")
 
 -- Icons
 spec("user.plugin.mini-icons")
