@@ -21,6 +21,7 @@ spec("user.plugin.which-key")
 spec("user.plugin.nvim-cmp")
 spec("user.plugin.gitsigns")
 spec("user.plugin.todo-comments")
+spec("user.plugin.lualine")
 
 -- Workflow enforcing/training
 
