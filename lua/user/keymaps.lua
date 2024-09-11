@@ -8,16 +8,6 @@ vim.keymap.set("", ";", ":")
 --  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 
--- Diagnostic keymaps
--- TODO: Figure out better key sequence or integrate with Mini.pick
---
--- vim.keymap.set(
---   "n",
---   "<leader>q",
---   vim.diagnostic.setloclist,
---   { desc = "Open diagnostic [Q]uickfix list" }
--- )
-
 -- The following code creates a keymap to toggle inlay hints in your
 -- code, if the language server you are using supports them
 --
@@ -42,12 +32,6 @@ vim.keymap.set(
     desc = "[D]iagnostics",
   }
 )
-
--- Exit terminal mode easier. The default is <C-\><C-n>
---
--- NOTE: This won't work in all terminal emulators/tmux/etc.
---
--- vim.keymap.set("n", "<Esc><Esc>", "<C-'><C-n>", { desc = "Exit terminal mode" })
 
 -- Keybinds to make split navigation easier
 vim.keymap.set(
@@ -93,6 +77,21 @@ vim.keymap.set(
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv", { desc = "Decrease indent" })
 vim.keymap.set("v", ">", ">gv", { desc = "Increase indent" })
+
+-- Move line/selection up and down
+vim.keymap.set("n", "<A-j>", ":m .+1<cr>==", { desc = "Move line down" })
+vim.keymap.set("n", "<A-k>", ":m .-2<cr>==", { desc = "Move line up" })
+vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move line down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move line up" })
+vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<cr>==gi", { desc = "Move line down" })
+vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<cr>==gi", { desc = "Move line up" })
+
+-- nnoremap <A-j> :m .+1<CR>==
+-- nnoremap <A-k> :m .-2<CR>==
+-- inoremap <A-j> <Esc>:m .+1<CR>==gi
+-- inoremap <A-k> <Esc>:m .-2<CR>==gi
+-- vnoremap <A-j> :m '>+1<CR>gv=gv
+-- vnoremap <A-k> :m '<-2<CR>gv=gv
 
 -- Toggling precognition and hardtime plugins
 vim.keymap.set(
