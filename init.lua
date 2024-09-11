@@ -9,6 +9,8 @@ spec("user.colorscheme.everforest")
 spec("user.colorscheme.kanagawa")
 spec("user.colorscheme.tokyonight")
 spec("user.colorscheme.catppuccin")
+spec("user.colorscheme.moonfly")
+spec("user.colorscheme.nightfly")
 
 -- Specifying plugins
 spec("user.plugin.mini")
