@@ -13,6 +13,7 @@ spec("user.colorscheme.moonfly")
 spec("user.colorscheme.nightfly")
 
 -- Specifying plugins
+spec("user.plugin.dressing")
 spec("user.plugin.mini")
 spec("user.plugin.nvim-treesitter")
 spec("user.plugin.mason-lsp-config")
