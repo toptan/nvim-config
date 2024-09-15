@@ -6,7 +6,8 @@ local M = {
 function M.config()
   require("user.mini.misc").config()
   require("user.mini.icons").config()
-  require("user.mini.notify").config()
+  -- NOTE: mini.notify is initialized by noice
+  -- require("user.mini.notify").config()
   require("user.mini.pairs").config()
   require("user.mini.indentscope").config()
   require("user.mini.bufremove").config()

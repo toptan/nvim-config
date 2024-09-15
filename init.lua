@@ -26,6 +26,7 @@ spec("user.plugin.project")
 spec("user.plugin.neogit")
 spec("user.plugin.gitsigns")
 spec("user.plugin.nvim-cmp")
+spec("user.plugin.noice")
 
 -- Enforcing good habbits/workflow.
 -- spec("user.plugin.hardtime")
