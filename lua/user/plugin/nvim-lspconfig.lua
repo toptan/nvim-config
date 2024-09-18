@@ -9,8 +9,6 @@ local M = {
 }
 
 M.on_attach = function(client, bufnr)
-  -- TODO: Configure keymaps here.
-
   if client.supports_method("textDocument/inlayHint") then
     vim.lsp.inlay_hint.enable(true, { bufnr })
   end
@@ -30,33 +28,64 @@ M.toggle_inlay_hints = function()
   )
 end
 
-function M.config()
-  -- TODO: Set leader keystrokes here.
+local function set_keymaps()
+  -- TODO: Set key mappings here.
   vim.keymap.set(
     "n",
     "<leader>cf",
     "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
     { desc = "[F]ormat" }
   )
+
   vim.keymap.set(
     "n",
     "<leader>ca",
     "<cmd>lua vim.lsp.buf.code_action()<cr>",
     { desc = "[A]ction" }
   )
+
   vim.keymap.set(
     "v",
     "<leader>ca",
     "<cmd>lua vim.lsp.buf.code_action()<cr>",
     { desc = "[A]ction" }
   )
+
   vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "[I]nfo" })
+
   vim.keymap.set(
     "n",
     "<leader>th",
     M.toggle_inlay_hints,
     { desc = "Inlay [H]ints" }
   )
+
+  vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "[R]ename" })
+
+  vim.keymap.set(
+    "n",
+    "gD",
+    vim.lsp.buf.declaration,
+    { desc = "Goto declaration" }
+  )
+
+  vim.keymap.set(
+    "n",
+    "gd",
+    vim.lsp.buf.definition,
+    { desc = "Goto definition" }
+  )
+
+  vim.keymap.set(
+    "n",
+    "gr",
+    vim.lsp.buf.references,
+    { desc = "List references" }
+  )
+end
+
+function M.config()
+  set_keymaps()
   local lspconfig = require("lspconfig")
   local servers = {
     "bashls",
