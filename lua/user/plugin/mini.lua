@@ -13,10 +13,6 @@ function M.config()
   require("user.mini.bufremove").config()
   require("user.mini.clue").config()
   require("user.mini.statusline").config()
-
-  -- Replaced with nvim-cmp as I really need navigation between parameters.
-  -- require("user.mini.completion").config()
-  require("user.mini.pick").config()
   require("user.mini.extra").config()
   require("user.mini.cursorword").config()
   require("user.mini.move").config()

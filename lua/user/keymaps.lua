@@ -93,7 +93,6 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move line up" })
 vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<cr>==gi", { desc = "Move line down" })
 vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<cr>==gi", { desc = "Move line up" })
 
-
 -- nnoremap <M-j> :m .+1<CR>==
 -- nnoremap <M-k> :m .-2<CR>==
 -- inoremap <M-j> <Esc>:m .+1<CR>==gi
@@ -113,22 +112,4 @@ vim.keymap.set(
   "<leader>tp",
   "<cmd>Precognition toggle<cr>",
   { desc = "[P]recognition" }
-)
-
--- Custom pickers
---
--- Recent projects
-vim.keymap.set(
-  "n",
-  "<leader>sp",
-  "<cmd>lua require('user.search').recent_projects()<cr>",
-  { desc = "[P]rojects" }
-)
-
--- Search for todos, notes, etc. via todo-comments.
-vim.keymap.set(
-  "n",
-  "<leader>sd",
-  "<cmd>lua require('user.search').todos()<cr>",
-  { desc = "To[D]os" }
 )

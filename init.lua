@@ -4,13 +4,7 @@ require("user.keymaps")
 require("user.autocmds")
 
 -- Loading colorschemes
-spec("user.colorscheme.citruszest")
-spec("user.colorscheme.everforest")
-spec("user.colorscheme.kanagawa")
 spec("user.colorscheme.tokyonight")
-spec("user.colorscheme.catppuccin")
-spec("user.colorscheme.moonfly")
-spec("user.colorscheme.nightfly")
 
 -- Specifying plugins
 spec("user.plugin.mini")
@@ -27,6 +21,8 @@ spec("user.plugin.neogit")
 spec("user.plugin.gitsigns")
 spec("user.plugin.nvim-cmp")
 spec("user.plugin.noice")
+spec("user.plugin.telescope-fzf-native")
+spec("user.plugin.telescope")
 
 -- Enforcing good habbits/workflow.
 -- spec("user.plugin.hardtime")
