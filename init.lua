@@ -23,6 +23,7 @@ spec("user.plugin.nvim-cmp")
 spec("user.plugin.noice")
 spec("user.plugin.telescope-fzf-native")
 spec("user.plugin.telescope")
+spec("user.plugin.aerial")
 
 -- Enforcing good habbits/workflow.
 -- spec("user.plugin.hardtime")
