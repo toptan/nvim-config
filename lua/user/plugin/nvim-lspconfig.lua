@@ -98,6 +98,7 @@ function M.config()
     -- "lemminx",
     "clangd",
     "cmake",
+    "qmlls",
   }
   local default_diagnostic_config = {
     signs = {
