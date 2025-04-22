@@ -23,23 +23,23 @@ vim.keymap.set("v", "p", '"_dP', opts)
 -- This may be unwanted, since they displace some of your code
 --
 vim.keymap.set(
-    "n",
-    "<leader>td",
-    (function()
-        local diag_status = 1 -- 1 is show; 0 is hide
-        return function()
-            if diag_status == 1 then
-                diag_status = 0
-                vim.diagnostic.hide()
-            else
-                diag_status = 1
-                vim.diagnostic.show()
-            end
-        end
-    end)(),
-    {
-        desc = "[D]iagnostics",
-    }
+  "n",
+  "<leader>td",
+  (function()
+    local diag_status = 1     -- 1 is show; 0 is hide
+    return function()
+      if diag_status == 1 then
+        diag_status = 0
+        vim.diagnostic.hide()
+      else
+        diag_status = 1
+        vim.diagnostic.show()
+      end
+    end
+  end)(),
+  {
+    desc = "[D]iagnostics",
+  }
 )
 
 -- Keybinds to make split navigation easier
