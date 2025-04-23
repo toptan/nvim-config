@@ -20,6 +20,7 @@ return {
       MiniIcons.tweak_lsp_kind()
 
       require("lspconfig").lua_ls.setup { capabilites = capabilities }
+      require("lspconfig").bashls.setup { capabilities = capabilities }
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
