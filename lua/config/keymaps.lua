@@ -26,7 +26,7 @@ vim.keymap.set(
   "n",
   "<leader>td",
   (function()
-    local diag_status = 1     -- 1 is show; 0 is hide
+    local diag_status = 1 -- 1 is show; 0 is hide
     return function()
       if diag_status == 1 then
         diag_status = 0
@@ -52,7 +52,6 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>x", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
--- vim.keymap.set("n", "<leader>x", "<cmd>lua MiniBufremove.delete()<cr>", { desc = "Delete buffer" })
 
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv", { desc = "Decrease indent" })

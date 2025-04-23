@@ -109,7 +109,7 @@ end
 
 return {
   {
-    'echasnovski/mini.nvim',
+    "echasnovski/mini.nvim",
     version = false,
     enabled = true,
     config = function()

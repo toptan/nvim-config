@@ -3,7 +3,6 @@ local install_required_packages = function()
   local required = {
     "bash-language-server",
     "lua-language-server",
-    "stylua",
   }
 
   for _, pkg_name in ipairs(required) do
