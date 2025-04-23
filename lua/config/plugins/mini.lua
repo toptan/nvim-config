@@ -1,3 +1,10 @@
+local setup_icons = function()
+  local icons = require("mini.icons")
+  icons.setup()
+  icons.mock_nvim_web_devicons()
+  MiniIcons.tweak_lsp_kind()
+end
+
 local setup_statusline = function()
   local activeContent = function()
     local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
@@ -107,15 +114,28 @@ local setup_clue = function()
   require("mini.clue").setup(options)
 end
 
+local setup_completion = function()
+  local kind_priority = { Text = -1, Snippet = 99 }
+  local opts = { filtersort = "fuzzy", kind_priority = kind_priority }
+  local process_items = function(items, base)
+    return MiniCompletion.default_process_items(items, base, opts)
+  end
+  require("mini.completion").setup({
+    lsp_completion = { process_items = process_items },
+  })
+end
+
 return {
   {
     "echasnovski/mini.nvim",
     version = false,
     enabled = true,
     config = function()
+      setup_icons()
       setup_statusline()
       setup_starter()
       setup_clue()
+      setup_completion()
     end
   },
 }

@@ -12,15 +12,8 @@ return {
       },
     },
     config = function()
-      require("mini.completion").setup()
-      local capabilities = require("mini.completion").get_lsp_capabilities()
-      local icons = require("mini.icons")
-      icons.setup()
-      icons.mock_nvim_web_devicons()
-      MiniIcons.tweak_lsp_kind()
-
-      require("lspconfig").lua_ls.setup { capabilities = capabilities }
-      require("lspconfig").bashls.setup { capabilities = capabilities }
+      vim.lsp.enable("lua_ls")
+      vim.lsp.enable("bashls")
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
