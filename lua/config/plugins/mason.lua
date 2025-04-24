@@ -3,6 +3,8 @@ local install_required_packages = function()
   local required = {
     "bash-language-server",
     "lua-language-server",
+    "neocmakelsp",
+    "shellcheck",
   }
 
   for _, pkg_name in ipairs(required) do

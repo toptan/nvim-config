@@ -14,6 +14,7 @@ return {
     config = function()
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("bashls")
+      vim.lsp.enable("neocmakelsp")
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
@@ -21,7 +22,7 @@ return {
           if not c then
             return
           end
-          if vim.bo.filetype == "lua" then
+          if vim.bo.filetype == "lua" or vim.bo.filetype == "cmake" then
             -- Format the current buffer on save
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = args.buf,
