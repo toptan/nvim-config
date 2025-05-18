@@ -40,6 +40,8 @@ return {
           end
 
           vim.keymap.set("n", "<leader>cs", switch_source_header, { desc = "[S]witch header/source" })
+          vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to [D]eclaration" })
+          vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to [d]efinition" })
 
           if vim.bo.filetype == "lua" or vim.bo.filetype == "cmake" then
             -- Format the current buffer on save
