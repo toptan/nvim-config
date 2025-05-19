@@ -1,7 +1,3 @@
-local function set_keymaps()
-  vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "[F]ormat" })
-end
-
 local function switch_source_header()
   local clients = vim.lsp.get_clients({ bufnr = 0, name = "clangd" })
 
@@ -11,6 +7,70 @@ local function switch_source_header()
       return
     end
   end
+end
+
+local toggle_inlay_hints = function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  vim.lsp.inlay_hint.enable(
+    not vim.lsp.inlay_hint.is_enabled({ bufnr }),
+    { bufnr }
+  )
+end
+
+local function set_keymaps()
+  -- NOTE: Set key mappings here.
+  vim.keymap.set(
+    "n",
+    "<leader>cf",
+    "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
+    { desc = "[F]ormat" }
+  )
+
+  vim.keymap.set(
+    "n",
+    "<leader>ca",
+    "<cmd>lua vim.lsp.buf.code_action()<cr>",
+    { desc = "[A]ction" }
+  )
+
+  vim.keymap.set(
+    "v",
+    "<leader>ca",
+    "<cmd>lua vim.lsp.buf.code_action()<cr>",
+    { desc = "[A]ction" }
+  )
+
+  vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "[I]nfo" })
+
+  vim.keymap.set(
+    "n",
+    "<leader>th",
+    toggle_inlay_hints,
+    { desc = "Inlay [H]ints" }
+  )
+
+  vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "[R]ename" })
+
+  vim.keymap.set(
+    "n",
+    "gD",
+    vim.lsp.buf.declaration,
+    { desc = "Goto declaration" }
+  )
+
+  vim.keymap.set(
+    "n",
+    "gd",
+    vim.lsp.buf.definition,
+    { desc = "Goto definition" }
+  )
+
+  vim.keymap.set(
+    "n",
+    "gr",
+    vim.lsp.buf.references,
+    { desc = "List references" }
+  )
 end
 
 return {
