@@ -42,12 +42,12 @@ vim.g.loaded_perl_provider = 0
 
 -- Set python executable based on the operating system.
 -- TODO: Make this work on any Linux box
-if vim.uv.os_uname()["sysname"] == "Darwin" then
-  vim.g.python3_host_prog =
-  "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
-elseif vim.uv.os_uname()["sysname"] == "Linux" then
-  vim.g.python3_host_prog = "python3"
-elseif vim.uv.os_uname()["sysname"] == "Windows_NT" then
-  vim.g.python3_host_prog =
-  "C:/Users/ToplicaTanaskovic/AppData/Local/Programs/Python/Python312/python.EXE"
-end
+-- if vim.uv.os_uname()["sysname"] == "Darwin" then
+--   vim.g.python3_host_prog =
+--   "/opt/homebrew/bin/python3"
+-- elseif vim.uv.os_uname()["sysname"] == "Linux" then
+--   vim.g.python3_host_prog = "python3"
+-- elseif vim.uv.os_uname()["sysname"] == "Windows_NT" then
+--   vim.g.python3_host_prog =
+--   "C:/Users/ToplicaTanaskovic/AppData/Local/Programs/Python/Python312/python.EXE"
+-- end

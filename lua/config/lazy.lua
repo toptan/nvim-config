@@ -29,11 +29,11 @@ require("config.options")
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    { "rebelot/kanagawa.nvim",  config = function() vim.cmd.colorscheme("kanagawa-wave") end },
+    { "folke/tokyonight.nvim", lazy=false, priority = 1000, opts = {}, config = function() vim.cmd.colorscheme("tokyonight") end },
     { import = "config.plugins" },
   },
   install = {
-    colorscheme = { "kanagawa-wave", "default" },
+    colorscheme = { "tokyonight", "default" },
   },
   change_detection = {
     -- automatically check for config file changes and reload the ui
