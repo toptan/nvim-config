@@ -4,14 +4,17 @@ local function lsp_attach_callback(ev)
     return
   end
 
-  if client.name == "lua_ls" then
-    vim.keymap.set("n", "<leader>cf", require("stylua-nvim").format_file, { desc = "[F]ormat" })
-  else
-    vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "[F]ormat" })
+  local format_func = require("conform").format
+  if client.name == "clangd" then
+    format_func = vim.lsp.buf.format
   end
+  vim.keymap.set("n", "<leader>cf", format_func, { desc = "[F]ormat" })
 end
 
 vim.lsp.enable("lua_ls")
+vim.lsp.enable("neocmakelsp")
+
+vim.diagnostic.config({ virtual_lines = true })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = lsp_attach_callback,
