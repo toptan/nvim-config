@@ -13,13 +13,13 @@ return {
     },
 
     clues = {
-      { mode = "n", keys = "<leader>f", desc = "+[F]ind" },
+      { mode = "n", keys = "<leader>f", desc = "+[F]iles" },
       { mode = "n", keys = "<leader>b", desc = "+[B]uffers" },
       { mode = "n", keys = "<leader>g", desc = "+[G]it" },
       { mode = "n", keys = "<leader>c", desc = "+[C]ode" },
       { mode = "n", keys = "<leader>t", desc = "+[T]oggle" },
       { mode = "n", keys = "<leader>l", desc = "+[L]SP" },
-      { mode = "n", keys = "<leader>s", desc = "+[S]ource" },
+      { mode = "n", keys = "<leader>s", desc = "+[S]earch" },
     },
   }
 }
