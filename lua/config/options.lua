@@ -36,9 +36,10 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
--- Disable ruby and perl provider warnings.
+-- Disable ruby, perl and node provider warnings.
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
+vim.g.loaded_node_provider = 0
 
 -- Set python executable based on the operating system.
 -- TODO: Make this work on any Linux box

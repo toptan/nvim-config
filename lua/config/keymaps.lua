@@ -17,11 +17,6 @@ vim.keymap.set("n", "x", '"_x', opts)
 -- Keep last yanked when pasting
 vim.keymap.set("v", "p", '"_dP', opts)
 
--- The following code creates a keymap to toggle inlay hints in your
--- code, if the language server you are using supports them
---
--- This may be unwanted, since they displace some of your code
---
 vim.keymap.set(
   "n",
   "<leader>td",
@@ -39,6 +34,26 @@ vim.keymap.set(
   end)(),
   {
     desc = "[D]iagnostics",
+  }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>tl",
+  (function()
+    local diag_status = 1 -- 1 is show; 0 is hide
+    return function()
+      if diag_status == 1 then
+        diag_status = 0
+        vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
+      else
+        diag_status = 1
+        vim.diagnostic.config({ virtual_lines = true, virtual_text = false })
+      end
+    end
+  end)(),
+  {
+    desc = "Virtual [L]ines/Text",
   }
 )
 
