@@ -35,6 +35,7 @@ return {
       },
     })
   end,
+  cmd = { "lua-language-server" },
   settings = {
     Lua = {
       format = false,

@@ -10,9 +10,9 @@ end
 
 local function footer_func()
   return "The computer scientist's main challenge is not to\n"
-      .. "get confused by the complexities of his own making.\n"
-      .. "\n"
-      .. "                              -- Edsger W. Dijkstra"
+    .. "get confused by the complexities of his own making.\n"
+    .. "\n"
+    .. "                              -- Edsger W. Dijkstra"
 end
 
 return {
@@ -21,5 +21,5 @@ return {
   opts = {
     header = header_func,
     footer = footer_func,
-  }
+  },
 }

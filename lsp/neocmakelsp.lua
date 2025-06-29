@@ -1,11 +1,3 @@
-local capabilities = require("mini.completion").get_lsp_capabilities()
-capabilities["workspace"] = {
-  didChangeWatchedFiles = {
-    dynamicRegistration = true,
-    relative_pattern_support = true,
-  },
-}
-
 return {
   cmd = { "neocmakelsp", "--stdio" },
   filetypes = { "cmake" },
@@ -20,5 +12,5 @@ return {
     scan_cmake_in_package = true, -- default is true
     semantic_token = false,
   },
-  capabilities = capabilities,
+  capabilities = require("mini.completion").get_lsp_capabilities(),
 }

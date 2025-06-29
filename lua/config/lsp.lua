@@ -13,6 +13,7 @@ end
 
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("neocmakelsp")
+vim.lsp.enable("clangd")
 
 vim.diagnostic.config({ virtual_lines = true })
 
