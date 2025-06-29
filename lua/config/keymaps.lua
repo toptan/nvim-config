@@ -41,7 +41,7 @@ vim.keymap.set(
   "n",
   "<leader>tl",
   (function()
-    local diag_status = 1 -- 1 is show; 0 is hide
+    local diag_status = 0 -- 1 is show; 0 is hide
     return function()
       if diag_status == 1 then
         diag_status = 0

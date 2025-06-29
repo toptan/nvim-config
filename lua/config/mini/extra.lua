@@ -1,7 +1,8 @@
 local M = {}
 
 function M.setup()
-  require("mini.extra").setup()
+  local MiniExtra = require("mini.extra")
+  MiniExtra.setup()
 
   vim.keymap.set("n", "<leader>fe", MiniExtra.pickers.explorer, { desc = "[E]xplorer" })
   vim.keymap.set("n", "<leader>sk", MiniExtra.pickers.keymaps, { desc = "[K]eymaps" })
