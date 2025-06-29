@@ -46,8 +46,8 @@ local function lsp_attach_callback(ev)
 end
 
 vim.lsp.enable("lua_ls")
--- vim.lsp.enable("neocmakelsp")
--- vim.lsp.enable("clangd")
+vim.lsp.enable("neocmakelsp")
+vim.lsp.enable("clangd")
 
 vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
 
