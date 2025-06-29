@@ -1,7 +1,8 @@
 local M = {}
 
 function M.setup()
-  require("mini.pick").setup()
+  local MiniPick = require("mini.pick")
+  MiniPick.setup()
   vim.ui.select = MiniPick.ui_select
 
   vim.keymap.set("n", "<leader>sf", MiniPick.builtin.files, { desc = "[F]iles" })
