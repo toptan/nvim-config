@@ -2,7 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   branch = "master",
   lazy = false,
-  config = function ()
+  config = function()
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         "asm",
@@ -18,18 +18,22 @@ return {
         "gitattributes",
         "gitcommit",
         "gitignore",
+        "linkerscript",
         "lua",
         "luadoc",
+        "make",
         "markdown",
         "markdown_inline",
+        "ninja",
         "printf",
         "regex",
         "ssh_config",
         "tmux",
+        "todotxt",
         "toml",
         "yaml",
-      }
+      },
     })
   end,
-  build = ":TSUpdate"
+  build = ":TSUpdate",
 }

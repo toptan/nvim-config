@@ -1,3 +1,3 @@
 return {
-  capabilities = require("mini.completion").get_lsp_capabilities()
+  capabilities = require("mini.completion").get_lsp_capabilities(),
 }
