@@ -31,24 +31,24 @@ vim.opt.runtimepath:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require("config.options")
+--require("config.options")
 
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
     {
-      "rebelot/kanagawa.nvim",
+      "neanias/everforest-nvim",
       lazy = false,
       priority = 1000,
       opts = {},
       config = function()
-        vim.cmd.colorscheme("kanagawa-dragon")
+        vim.cmd.colorscheme("everforest")
       end,
     },
-    { import = "config.plugins" },
+    { import = "plugins" },
   },
   install = {
-    colorscheme = { "kanagawa-dragon" },
+    colorscheme = { "everforest" },
   },
   change_detection = {
     -- automatically check for config file changes and reload the ui
