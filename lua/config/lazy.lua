@@ -31,7 +31,7 @@ vim.opt.runtimepath:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
---require("config.options")
+require("config.options")
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -56,3 +56,6 @@ require("lazy").setup({
     notify = false, -- get a notification when changes are found
   },
 })
+
+require("config.keymaps")
+require("config.autocmds")
