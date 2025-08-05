@@ -185,7 +185,8 @@ return {
         local ensure_installed = servers
         vim.list_extend(ensure_installed, {
             "stylua",
-            "cmakelint"
+            "cmakelint",
+            "gersemi",
         })
 
         require("mason-tool-installer").setup({ ensure_installed = ensure_installed })

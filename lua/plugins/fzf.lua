@@ -5,21 +5,27 @@ return {
     opts = {
         register_ui_select = true,
     },
-    keys={
-        { 
+    keys = {
+        {
             "<leader>ff",
-            function() require('fzf-lua').files() end,
-            desc="[F]iles in project directory"
+            function()
+                require("fzf-lua").files()
+            end,
+            desc = "[F]iles in project directory",
         },
-        { 
+        {
             "<leader>fg",
-            function() require('fzf-lua').live_grep() end,
-            desc="By [g]repping in project directory"
+            function()
+                require("fzf-lua").live_grep()
+            end,
+            desc = "By [g]repping in project directory",
         },
-        { 
+        {
             "<leader>fc",
-            function() require('fzf-lua').files({cwd=vim.fn.stdpath("config")}) end,
-            desc="Neovim [c]onfiguration"
+            function()
+                require("fzf-lua").files({ cwd = vim.fn.stdpath("config") })
+            end,
+            desc = "Neovim [c]onfiguration",
         },
         {
             "<leader>fh",
@@ -91,5 +97,5 @@ return {
             end,
             desc = "[/] Live grep the current buffer",
         },
-    }
+    },
 }
