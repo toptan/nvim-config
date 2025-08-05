@@ -57,5 +57,7 @@ require("lazy").setup({
   },
 })
 
+vim.cmd("FzfLua register_ui_select")
+
 require("config.keymaps")
 require("config.autocmds")

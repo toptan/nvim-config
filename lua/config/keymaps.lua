@@ -18,43 +18,47 @@ vim.keymap.set("n", "x", '"_x', opts)
 vim.keymap.set("v", "p", '"_dP', opts)
 
 vim.keymap.set(
-  "n",
-  "<leader>td",
-  (function()
-    local diag_status = 1 -- 1 is show; 0 is hide
-    return function()
-      if diag_status == 1 then
-        diag_status = 0
-        vim.diagnostic.hide()
-      else
-        diag_status = 1
-        vim.diagnostic.show()
-      end
-    end
-  end)(),
-  {
-    desc = "[D]iagnostics",
-  }
+    "n",
+    "<leader>td",
+    (function()
+        local diag_status = 1 -- 1 is show; 0 is hide
+        return function()
+            if diag_status == 1 then
+                diag_status = 0
+                vim.diagnostic.hide()
+            else
+                diag_status = 1
+                vim.diagnostic.show()
+            end
+        end
+    end)(),
+    {
+        desc = "[D]iagnostics",
+    }
 )
 
+vim.keymap.set("n", "gl", function()
+    vim.diagnostic.open_float()
+end, { desc = "Open Diagnostics in Float" })
+
 vim.keymap.set(
-  "n",
-  "<leader>tl",
-  (function()
-    local diag_status = 1 -- 1 is show; 0 is hide
-    return function()
-      if diag_status == 1 then
-        diag_status = 0
-        vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
-      else
-        diag_status = 1
-        vim.diagnostic.config({ virtual_lines = true, virtual_text = false })
-      end
-    end
-  end)(),
-  {
-    desc = "Virtual [L]ines/Text",
-  }
+    "n",
+    "<leader>tl",
+    (function()
+        local diag_status = 1 -- 1 is show; 0 is hide
+        return function()
+            if diag_status == 1 then
+                diag_status = 0
+                vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
+            else
+                diag_status = 1
+                vim.diagnostic.config({ virtual_lines = true, virtual_text = false })
+            end
+        end
+    end)(),
+    {
+        desc = "Virtual [L]ines/Text",
+    }
 )
 
 -- Keybinds to make split navigation easier

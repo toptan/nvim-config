@@ -1,7 +1,10 @@
 return {
     "ibhagwan/fzf-lua",
     dependencies = { "echasnovski/mini.icons" },
-    opts = {},
+    lazy = false,
+    opts = {
+        register_ui_select = true,
+    },
     keys={
         { 
             "<leader>ff",
