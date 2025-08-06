@@ -4,6 +4,7 @@ return {
         formatters_by_ft = {
             lua = { "stylua" },
             cmake = { "gersemi" },
+            toml = { "pyproject-fmt" },
         },
     },
     format_on_save = {

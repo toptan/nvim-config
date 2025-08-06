@@ -187,6 +187,7 @@ return {
             "stylua",
             "cmakelint",
             "gersemi",
+            "pyproject-fmt",
         })
 
         require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
