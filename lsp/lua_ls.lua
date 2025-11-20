@@ -54,5 +54,5 @@ return {
     })
   end,
   settings = { Lua = {} },
-  capabilities = MiniCompletion.get_lsp_capabilities(),
+  capabilities = require("mini.completion").get_lsp_capabilities(),
 }
