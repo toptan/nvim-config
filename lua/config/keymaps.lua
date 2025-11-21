@@ -59,3 +59,5 @@ vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<cr>==gi", { desc = "Move line up" })
 -- Toggling precognition and hardtime plugins
 -- vim.keymap.set("n", "<leader>tt", "<cmd>Hardtime toggle<cr>", { desc = "Hard [T]ime" })
 -- vim.keymap.set("n", "<leader>tp", "<cmd>Precognition toggle<cr>", { desc = "[P]recognition" })
+
+vim.keymap.set("n", "-", "<cmd>Oil --float<cr>", { desc = "Open parent directory" })
