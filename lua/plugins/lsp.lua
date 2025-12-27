@@ -148,6 +148,7 @@ local configure_lsp = function()
 
   local servers = {
     "lua_ls",
+    "neocmake",
   }
   for _, server in ipairs(servers) do
     vim.lsp.enable(server)
