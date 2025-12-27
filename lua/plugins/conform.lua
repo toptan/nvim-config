@@ -5,6 +5,7 @@ return {
       lua = { "stylua" },
       cmake = { "gersemi" },
       toml = { "pyproject-fmt" },
+      jsonc = { "prettier" },
     },
   },
   format_on_save = {
