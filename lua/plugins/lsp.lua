@@ -17,9 +17,7 @@ local function create_keymaps(event)
 
   --  To jump back, press <C-t>.
   map("gd", function()
-    MiniExtra.pickers.lsp({
-      scope = "definition",
-    })
+    Snacks.picker.lsp_definitions()
   end, "Goto definition")
   map("gD", function()
     MiniExtra.pickers.lsp({

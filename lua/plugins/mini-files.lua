@@ -2,6 +2,7 @@ return {
   "nvim-mini/mini.files",
   version = false,
   opts = {},
+  lazy = false,
   keys = {
     {
       "<Leader>fe",
