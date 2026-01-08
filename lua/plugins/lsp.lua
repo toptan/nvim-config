@@ -20,9 +20,7 @@ local function create_keymaps(event)
     Snacks.picker.lsp_definitions()
   end, "Goto definition")
   map("gD", function()
-    MiniExtra.pickers.lsp({
-      scope = "declaration",
-    })
+    Snacks.picker.lsp_declarations()
   end, "Goto declaration")
   map("<leader>cr", function()
     MiniExtra.pickers.lsp({
@@ -53,6 +51,9 @@ local function create_keymaps(event)
     "n",
     "x",
   })
+  map("<leader>cd", function()
+    Snacks.picker.diagnostics()
+  end, "[D]iagnostics")
 end
 
 local function setup_highlight_references_under_cursor(event)
@@ -145,6 +146,7 @@ local configure_lsp = function()
   })
 
   local servers = {
+    "clangd",
     "lua_ls",
     "neocmake",
   }

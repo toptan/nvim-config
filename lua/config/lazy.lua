@@ -2,7 +2,8 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  local out =
+    vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
@@ -20,18 +21,22 @@ require("config.options")
 require("config.autocmds")
 require("config.keymaps")
 
-vim.cmd.colorscheme("retrobox")
+vim.schedule(function()
+  vim.cmd.colorscheme("catppuccin")
+end)
+-- vim.cmd.colorscheme("retrobox")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     -- import your plugins
     { import = "plugins" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "catppuccin", "retrobox" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
   -- disable automatic check for config files change
