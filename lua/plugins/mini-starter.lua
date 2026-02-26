@@ -3,7 +3,7 @@ local function header_func()
   -- [04:00, 12:00) - morning, [12:00, 20:00) - day, [20:00, 04:00) - evening
   local part_id = math.floor((hour + 4) / 8) + 1
   local day_part = ({ "evening", "morning", "afternoon", "evening" })[part_id]
-  local username = vim.loop.os_get_passwd()["username"] or "USERNAME"
+  local username = os.getenv("USER") or os.getenv("LOGNAME")
 
   return ("Good %s, %s!\n\nWhere there is a shell, there is a way."):format(day_part, username)
 end

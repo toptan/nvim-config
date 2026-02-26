@@ -7,6 +7,8 @@ return {
       cmake = { "gersemi" },
       toml = { "pyproject-fmt" },
       jsonc = { "prettier" },
+      bash = { "shfmt" },
+      sh = { "shfmt" },
     },
   },
   format_on_save = {

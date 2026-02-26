@@ -35,6 +35,8 @@ require("lazy").setup({
     { import = "plugins" },
   },
   -- Configure any other settings here. See the documentation for more details.
+  -- disable luarocks
+  rocks = { enabled = false },
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "catppuccin", "retrobox" } },
   -- automatically check for plugin updates
