@@ -21,16 +21,13 @@ require("config.options")
 require("config.autocmds")
 require("config.keymaps")
 
-vim.schedule(function()
-  vim.cmd.colorscheme("catppuccin")
-end)
--- vim.cmd.colorscheme("retrobox")
+vim.cmd.colorscheme("habamax")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { "catppuccin/nvim", name = "habamax", priority = 1000 },
     -- import your plugins
     { import = "plugins" },
   },
@@ -38,7 +35,7 @@ require("lazy").setup({
   -- disable luarocks
   rocks = { enabled = false },
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "catppuccin", "retrobox" } },
+  install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
   -- disable automatic check for config files change
