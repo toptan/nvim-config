@@ -1,0 +1,29 @@
+return {
+  "stevearc/conform.nvim",
+  lazy = false,
+  opts = {
+    formatters_by_ft = {
+      lua = { "stylua" },
+      cmake = { "gersemi" },
+      toml = { "pyproject-fmt" },
+      jsonc = { "prettier" },
+      bash = { "shfmt" },
+      sh = { "shfmt" },
+    },
+  },
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = "fallback",
+  },
+  keys = {
+    {
+      "<Leader>cf",
+      function()
+        require("conform").format({
+          lsp_format = "fallback",
+        })
+      end,
+      desc = "[F]ormat",
+    },
+  },
+}
