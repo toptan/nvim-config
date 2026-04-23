@@ -1,6 +1,10 @@
 -- Set colorscheme to catppuccin as it is now included in neovim
 vim.cmd.colorscheme("catppuccin")
 
+-- Set background to be transparent
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+
 -- Define config table to be able to pass data between scripts
 -- It is a global variable which can be use both as `_G.Config` and `Config`
 _G.Config = {}
