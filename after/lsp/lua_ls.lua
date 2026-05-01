@@ -24,7 +24,7 @@ local root_markers2 = {
 }
 
 return {
-    on_attach = function(client, buf_id)
+    on_attach = function(client, _)
         -- Reduce very long list of triggers for better 'mini.completion' experience
         client.server_capabilities.completionProvider.triggerCharacters = { ".", ":", "#", "(" }
 
@@ -40,11 +40,19 @@ return {
             -- Define runtime properties. Use 'LuaJIT', as it is built into Neovim.
             runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },
             workspace = {
+                checkThirdParty = true,
                 -- Don't analyze code from submodules
                 ignoreSubmodules = true,
                 -- Add Neovim's methods for easier code writing
-                library = { vim.env.VIMRUNTIME },
+                library = {
+                    vim.env.VIMRUNTIME,
+                    -- Add here more paths if needed
+                    "${3rd}/luv/library",
+                    "${3rd}/busted/library",
+                    "${3rd}/luassert/library",
+                },
             },
         },
     },
+    capabilities = require("mini.completion").get_lsp_capabilities(),
 }

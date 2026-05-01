@@ -23,6 +23,7 @@ Config.leader_group_clues = {
 local nmap_leader = function(suffix, rhs, desc)
     vim.keymap.set("n", "<Leader>" .. suffix, rhs, { desc = desc })
 end
+
 local xmap_leader = function(suffix, rhs, desc)
     vim.keymap.set("x", "<Leader>" .. suffix, rhs, { desc = desc })
 end
@@ -30,6 +31,9 @@ end
 local new_scratch_buffer = function()
     vim.api.nvim_win_set_buf(0, vim.api.nvim_create_buf(true, true))
 end
+
+nmap("<Tab>", "<Cmd>bnext<CR>", "Next buffer")
+nmap("<S-Tab>", "<Cmd>bprev<CR>", "Previous buffer")
 
 nmap_leader("ba", "<Cmd>b#<CR>", "Alternate")
 nmap_leader("bd", "<Cmd>lua MiniBufremove.delete()<CR>", "Delete")
