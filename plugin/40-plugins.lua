@@ -84,5 +84,9 @@ now(function()
         "https://github.com/sainnhe/everforest",
         "https://github.com/Shatur/neovim-ayu",
     })
-    vim.cmd.colorscheme("ayu")
+    vim.cmd.colorscheme("ayu-mirage")
+end)
+
+later(function()
+    add({ "https://github.com/NeogitOrg/neogit.git" })
 end)

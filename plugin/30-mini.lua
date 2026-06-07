@@ -291,5 +291,164 @@ end)
 --
 -- The built-in `:h commenting` is based on 'mini.comment'. Yet this module is
 -- still enabled as it provides more customization opportunities.
-later(function() require('mini.comment').setup() end)
+later(function()
+    require("mini.comment").setup()
+end)
 
+-- Move any selection in any direction. Example usage in Normal mode:
+-- - `<M-j>`/`<M-k>` - move current line down / up
+-- - `<M-h>`/`<M-l>` - decrease / increase indent of current line
+--
+-- Example usage in Visual mode:
+-- - `<M-h>`/`<M-j>`/`<M-k>`/`<M-l>` - move selection left/down/up/right
+later(function()
+    require("mini.move").setup()
+end)
+
+-- Text edit operators. All operators have mappings for:
+-- - Regular operator (waits for motion/textobject to use)
+-- - Current line action (repeat second character of operator to activate)
+-- - Act on visual selection (type operator in Visual mode)
+--
+-- Example usage:
+-- - `griw` - replace (`gr`) *i*inside *w*ord
+-- - `gmm` - multiple/duplicate (`gm`) current line (extra `m`)
+-- - `vipgs` - *v*isually select *i*nside *p*aragraph and sort it (`gs`)
+-- - `gxiww.` - exchange (`gx`) *i*nside *w*ord with next word (`w` to navigate
+--   to it and `.` to repeat exchange operator)
+-- - `g==` - execute current line as Lua code and replace with its output.
+--   For example, typing `g==` over line `vim.lsp.get_clients()` shows
+--   information about all available LSP clients.
+--
+-- See also:
+-- - `:h MiniOperators-mappings` - overview of how mappings are created
+-- - `:h MiniOperators-overview` - overview of present operators
+later(function()
+    require("mini.operators").setup()
+
+    -- Create mappings for swapping adjacent arguments. Notes:
+    -- - Relies on `a` argument textobject from 'mini.ai'.
+    -- - It is not 100% reliable, but mostly works.
+    -- - It overrides `:h (` and `:h )`.
+    -- Explanation: `gx`-`ia`-`gx`-`ila` <=> exchange current and last argument
+    -- Usage: when on `a` in `(aa, bb)` press `)` followed by `(`.
+    vim.keymap.set("n", "(", "gxiagxila", { remap = true, desc = "Swap arg left" })
+    vim.keymap.set("n", ")", "gxiagxina", { remap = true, desc = "Swap arg right" })
+end)
+
+-- Autopairs functionality. Insert pair when typing opening character and go over
+-- right character if it is already to cursor's right. Also provides mappings for
+-- `<CR>` and `<BS>` to perform extra actions when inside pair.
+-- Example usage in Insert mode:
+-- - `(` - insert "()" and put cursor between them
+-- - `)` when there is ")" to the right - jump over ")" without inserting new one
+-- - `<C-v>(` - always insert a single "(" literally. This is useful since
+--   'mini.pairs' doesn't provide particularly smart behavior, like auto balancing
+later(function()
+    -- Create pairs not only in Insert, but also in Command line mode
+    require("mini.pairs").setup({ modes = { command = true } })
+end)
+
+-- Pick anything with single window layout and fast matching. This is one of
+-- the main usability improvements as it powers a lot of "find things quickly"
+-- workflows. How to use a picker:
+-- - Start picker, usually with `:Pick <picker-name>` command. Like `:Pick files`.
+--   It shows a single window in the bottom left corner filled with possible items
+--   to choose from. Current item has special full line highlighting.
+--   At the top there is a current query used to filter+sort items.
+-- - Type characters (appear at top) to narrow down items. There is fuzzy matching:
+--   characters may not match one-by-one, but they should be in correct order.
+-- - Navigate down/up with `<C-n>`/`<C-p>`.
+-- - Press `<Tab>` to show item's preview. `<Tab>` again goes back to items.
+-- - Press `<S-Tab>` to show picker's info. `<S-Tab>` again goes back to items.
+-- - Press `<CR>` to choose an item. The exact action depends on the picker: `files`
+--   picker opens a selected file, `help` picker opens help page on selected tag.
+--   To close picker without choosing an item, press `<Esc>`.
+--
+-- Example usage:
+-- - `<Leader>ff` - *f*ind *f*iles; for best performance requires `ripgrep`
+-- - `<Leader>fg` - *f*ind inside files (a.k.a. "to *g*rep"); requires `ripgrep`
+-- - `<Leader>fh` - *f*ind *h*elp tag
+-- - `<Leader>fr` - *r*esume latest picker
+-- - `:h vim.ui.select()` - implemented with 'mini.pick'
+--
+-- See also:
+-- - `:h MiniPick-overview` - overview of picker functionality
+-- - `:h MiniPick-examples` - examples of common setups
+-- - `:h MiniPick.builtin` and `:h MiniExtra.pickers` - available pickers;
+--   Execute one either with Lua function, `:Pick <picker-name>` command, or
+--   one of `<Leader>f` mappings defined in 'plugin/20_keymaps.lua'
+later(function()
+    require("mini.pick").setup()
+end)
+
+-- Surround actions: add/delete/replace/find/highlight. Working with surroundings
+-- is surprisingly common: surround word with quotes, replace `)` with `]`, etc.
+-- This module comes with many built-in surroundings, each identified by a single
+-- character. It searches only for surrounding that covers cursor and comes with
+-- a special "next" / "last" versions of actions to search forward or backward
+-- (just like 'mini.ai'). All text editing actions are dot-repeatable (see `:h .`).
+--
+-- Example usage (this may feel intimidating at first, but after practice it
+-- becomes second nature during text editing):
+-- - `saiw)` - *s*urround *a*dd for *i*nside *w*ord parenthesis (`)`)
+-- - `sdf`   - *s*urround *d*elete *f*unction call (like `f(var)` -> `var`)
+-- - `srb[`  - *s*urround *r*eplace *b*racket (any of [], (), {}) with padded `[`
+-- - `sf*`   - *s*urround *f*ind right part of `*` pair (like bold in markdown)
+-- - `shf`   - *s*urround *h*ighlight current *f*unction call
+-- - `srn{{` - *s*urround *r*eplace *n*ext curly bracket `{` with padded `{`
+-- - `sdl'`  - *s*urround *d*elete *l*ast quote pair (`'`)
+-- - `vaWsa<Space>` - *v*isually select *a*round *W*ORD and *s*urround *a*dd
+--                    spaces (`<Space>`)
+--
+-- See also:
+-- - `:h MiniSurround-builtin-surroundings` - list of all supported surroundings
+-- - `:h MiniSurround-surrounding-specification` - examples of custom surroundings
+-- - `:h MiniSurround-vim-surround-config` - alternative set of action mappings
+later(function()
+    require("mini.surround").setup()
+end)
+
+-- Highlight and remove trailspace. Temporarily stops highlighting in Insert mode
+-- to reduce noise when typing. Example usage:
+-- - `<Leader>ot` - trim all trailing whitespace in a buffer
+later(function()
+    require("mini.trailspace").setup()
+end)
+
+-- Autohighlight word under cursor with a customizable delay.
+-- Word boundaries are defined based on `:h 'iskeyword'` option.
+--
+-- It is not enabled by default because its effects are a matter of taste.
+-- Uncomment next line (use `gcc`) to enable.
+-- later(function() require('mini.cursorword').setup() end)
+
+-- Work with diff hunks that represent the difference between the buffer text and
+-- some reference text set by a source. Default source uses text from Git index.
+-- Also provides summary info used in developer section of 'mini.statusline'.
+-- Example usage:
+-- - `ghip` - apply hunks (`gh`) within *i*nside *p*aragraph
+-- - `gHG` - reset hunks (`gH`) from cursor until end of buffer (`G`)
+-- - `ghgh` - apply (`gh`) hunk at cursor (`gh`)
+-- - `gHgh` - reset (`gH`) hunk at cursor (`gh`)
+-- - `<Leader>go` - toggle overlay
+--
+-- See also:
+-- - `:h MiniDiff-overview` - overview of how module works
+-- - `:h MiniDiff-diff-summary` - available summary information
+-- - `:h MiniDiff.gen_source` - available built-in sources
+later(function()
+    require("mini.diff").setup({
+        view = {
+            -- Visualization style. Possible values are 'sign' and 'number'.
+            -- Default: 'number' if line numbers are enabled, 'sign' otherwise.
+            style = "sign",
+
+            -- Signs used for hunks with 'sign' view
+            signs = { add = "+", change = "~", delete = "-" },
+
+            -- Priority of used visualization extmarks
+            priority = 199,
+        },
+    })
+end)
